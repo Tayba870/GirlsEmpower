@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Relationships | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF6B6B;
+      --secondary: #4ECDC4;
+      --dark: #292F36;
+      --light: #F7FFF7;
+      --accent: #FFE66D;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+      background-color: var(--light);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--dark);
+      color: var(--light);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .category-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .category-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .category-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+    
+    .resources-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .relationship-quiz {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      border: 2px solid var(--accent);
+    }
+    
+    .quiz-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .quiz-icon {
+      background: var(--primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: white;
+    }
+    
+    .quiz-content h2 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .quiz-stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+      min-width: 120px;
+    }
+    
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.85rem;
+      color: #555;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+    }
+    
+    .resource-section {
+      margin: 3rem 0;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    
+    .article-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .article-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .article-content {
+      padding: 1.5rem;
+    }
+    
+    .article-date {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+    
+    .article-card h3 {
+      font-family: 'Playfair Display', serif;
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+    
+    .article-excerpt {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0.5rem 0 1rem;
+    }
+    
+    .read-more {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    footer {
+      background: var(--dark);
+      color: var(--light);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+    
+    footer p {
+      margin: 0.5rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .category-header h1 {
+        font-size: 2rem;
+      }
+      
+      .quiz-stats {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" width="40" height="40" /> GirlEmpower+
+  </div>
+</header>
+
+<div class="category-header">
+  <div class="category-icon">💞</div>
+  <h1>Healthy Relationships</h1>
+  <p>Building and maintaining positive connections with friends, family, and partners</p>
+</div>
+
+<div class="resources-container">
+  <div class="relationship-quiz">
+    <div class="quiz-header">
+      <div class="quiz-icon">?</div>
+      <h2>What's Your Relationship Health Score?</h2>
+    </div>
+    <p>Take our 5-minute quiz to assess the health of your relationships and get personalized tips for improvement.</p>
+    
+    <div class="quiz-stats">
+      <div class="stat-item">
+        <div class="stat-number">87%</div>
+        <div class="stat-label">of participants found new insights</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10k+</div>
+        <div class="stat-label">quizzes completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4.8★</div>
+        <div class="stat-label">average rating</div>
+      </div>
+    </div>
+    
+    <a href="start quiz.html" class="btn">Start Quiz</a>
+  </div>
+
+  <div class="resource-section">
+    <h2 class="section-title"><span>📚</span> Relationship Guides</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <img src="Setting Healthy Boundaries in Friendships.jpg" alt="Friendship boundaries" width="300" height="180">
+        <div class="article-content">
+          <div class="article-date">April 18, 2023</div>
+          <h3>Setting Healthy Boundaries in Friendships</h3>
+          <p class="article-excerpt">How to maintain your wellbeing while being a good friend - scripts and scenarios included...</p>
+          <a href="#" class="read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="Navigating Difficult Family Relationships.jpg" alt="Family relationships" width="300" height="180">
+        <div class="article-content">
+          <div class="article-date">March 28, 2023</div>
+          <h3>Navigating Difficult Family Relationships</h3>
+          <p class="article-excerpt">Strategies for maintaining your peace during family conflicts and gatherings...</p>
+          <a href="#" class="read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="Recognizing Red Flags in Romantic Relationships.jpg" alt="Dating red flags" width="300" height="180">
+        <div class="article-content">
+          <div class="article-date">March 10, 2023</div>
+          <h3>Recognizing Red Flags in Romantic Relationships</h3>
+          <p class="article-excerpt">Early warning signs of unhealthy relationships and what to do about them...</p>
+          <a href="#" class="read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-section">
+    <h2 class="section-title"><span>🎭</span> Communication Tools</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <img src="The Art of Active Listening.jpg" alt="Active listening" width="300" height="180">
+        <div class="article-content">
+          <h3>The Art of Active Listening</h3>
+          <p class="article-excerpt">Exercises to improve your listening skills and deepen your connections...</p>
+          <a href="#" class="read-more">Try Now <span>→</span></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="Conflict Resolution.jpg" alt="Conflict resolution" width="300" height="180">
+        <div class="article-content">
+          <h3>Conflict Resolution Role Plays</h3>
+          <p class="article-excerpt">Practice navigating disagreements with these common scenarios...</p>
+          <a href="for I Statements Worksheet.html" class="read-more">Try Now <span>→</span></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="I Statements Worksheet.png" alt="Expressing needs" width="300" height="180">
+        <div class="article-content">
+          <h3>"I Statements" Worksheet</h3>
+          <p class="article-excerpt">Learn to express your needs clearly without blame or criticism...</p>
+          <a href="for I Statements Worksheet.html" class="read-more">Download <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Join our monthly relationship skills workshop</p>
+  <p style="font-size: 0.9rem; margin-top: 10px;">© 2025 GirlEmpower+. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

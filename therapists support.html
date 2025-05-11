@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Therapists & Support | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff9fb;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .logo img {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .menu-toggle {
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Navigation */
+    nav {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(255, 255, 255, 0.98);
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    nav.active {
+      display: flex;
+      max-height: 500px;
+    }
+
+    nav ul {
+      list-style-type: none;
+    }
+
+    nav a {
+      color: #d63384;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-bottom: 1px solid #f8bbd0;
+      transition: all 0.3s ease;
+      display: block;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #fce4ec;
+      padding-left: 35px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffcce6, #ff99cc);
+      color: #4a148c;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      background: url('https://img.icons8.com/ios/100/4a148c/mental-health.png') no-repeat;
+      position: absolute;
+      right: 50px;
+      top: 50px;
+      width: 100px;
+      height: 100px;
+      opacity: 0.2;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #d63384;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .section-title::before {
+      content: "";
+      color: #ff758c;
+      font-size: 2rem;
+      position: absolute;
+      left: 0;
+      top: -5px;
+    }
+
+    .section-text {
+      margin-bottom: 25px;
+      color: #555;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    
+    }
+
+    .therapist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .therapist-card {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border-top: 4px solid #ff758c;
+    }
+
+    .therapist-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .therapist-card h3 {
+      color: #c2185b;
+      margin-bottom: 10px;
+    }
+
+    .therapist-card p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .illustration {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .illustration img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 117, 140, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #ffcce6, #ffb3d9);
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons {
+      margin: 20px 0;
+    }
+
+    .social-icons a {
+      margin: 0 15px;
+      font-size: 1.5rem;
+      color: #c2185b;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: #880e4f;
+      transform: translateY(-5px);
+    }
+
+    footer p {
+      color: #880e4f;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        position: static;
+        background: transparent;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        max-height: none !important;
+        box-shadow: none;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        padding: 10px 20px;
+        border: none;
+        font-weight: 500;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 10px 20px;
+        transform: translateY(-3px);
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .hero::before {
+        right: 100px;
+        top: 50px;
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()">?</div>
+</header>
+
+<!-- Simplified Navigation -->
+<nav id="mainNav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="therapists ssupport.html" class="active">Therapists</a></li>
+    <li><a href="community-connection.html">Community</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Your Mental Health Matters</h1>
+  <p>Find trusted therapists and emotional support tailored specifically for women and girls.</p>
+</div>
+
+<!-- Content Section -->
+<div class="content">
+
+  <div class="illustration">
+    <img src="mental.jpg" alt="Therapy session illustration" style="max-height: 300px;">
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Professional Therapists</h2>
+    <p class="section-text">
+      Connect with licensed professionals who specialize in women's mental health:
+    </p>
+    
+    <div class="therapist-grid">
+      <div class="therapist-card">
+        <h3>Counseling Psychologists</h3>
+        <p>Specializing in anxiety, depression, and life transitions for women and girls.</p>
+      </div>
+      
+      <div class="therapist-card">
+        <h3>Trauma Specialists</h3>
+        <p>Experts in trauma-informed care with sensitivity to women's experiences.</p>
+      </div>
+      
+      <div class="therapist-card">
+        <h3>Wellness Coaches</h3>
+        <p>Helping with self-esteem, body image, and personal growth.</p>
+      </div>
+    </div>
+    
+    <a href="chat-with-therapist.html" class="cta-button">Book a Session</a>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Support Services</h2>
+    <p class="section-text">
+      We offer multiple ways to get the support you need:
+    </p>
+    <ul>
+      <li>24/7 Crisis Support Line</li>
+      <li>Weekly Online Support Groups</li>
+      <li>Anonymous Community Forums</li>
+      <li>Educational Workshops</li>
+    </ul>
+    <a href="community-connection.html" class="cta-button">Join a Support Group</a>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Why Choose Us?</h2>
+    <p class="section-text">
+      GirlEmpower+ provides a safe, inclusive space designed specifically for women and girls. All our therapists are vetted for cultural competency and gender sensitivity.
+    </p>
+    <div class="illustration">
+      <img src="https://img.freepik.com/free-vector/people-asking-questions-psychologist_74855-5541.jpg" alt="Support group illustration" style="max-height: 250px;">
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Follow Us for Daily Inspiration</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+
+<!-- JS Toggle Menu -->
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

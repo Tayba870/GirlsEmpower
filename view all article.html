@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View All Articles | GirlEmpower+</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      text-align: center;
+      color: white;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .article-grid {
+      max-width: 1000px;
+      margin: 50px auto;
+      display: grid;
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    @media (min-width: 768px) {
+      .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .article-card {
+      background: #fff3f9;
+      border-left: 5px solid #f06292;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .article-body {
+      padding: 20px;
+    }
+
+    .article-body h3 {
+      margin-bottom: 10px;
+      color: #c2185b;
+    }
+
+    .article-body p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .article-body a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #f06292;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .cta a {
+      background-color: #f06292;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta a:hover {
+      background-color: #d63384;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #fbcfe8;
+      padding: 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  View All Articles
+</header>
+
+<!-- Article Grid -->
+<div class="article-grid">
+
+  <!-- Article 1 -->
+  <div class="article-card">
+    <img src="Healing Journey.png" alt="Healing Journey">
+    <div class="article-body">
+      <h3>The Healing Journey Every Woman Should Know</h3>
+      <p>Explore how emotional healing can lead to empowerment and self-love even after years of silence.</p>
+      <a href="#">Read More</a>
+    </div>
+  </div>
+
+  <!-- Article 2 -->
+  <div class="article-card">
+    <img src="Mental Health Talks.jpg " alt="Mental Health Talk">
+    <div class="article-body">
+      <h3>Mental Health Talks That Changed My Life</h3>
+      <p>From anxiety to acceptance these powerful personal journeys will inspire and uplift you.</p>
+      <a href="#">Read More</a>
+    </div>
+  </div>
+
+  <!-- Article 3 -->
+  <div class="article-card">
+    <img src="Self-Care Tips.jpg" alt="Self-Care Tips">
+    <div class="article-body">
+      <h3>Simple Self-Care Tips for the Busy Woman</h3>
+      <p>You do not need hours a day to care for yourself. Here are easy routines that fit into any lifestyle.</p>
+      <a href="#">Read More </a>
+    </div>
+  </div>
+
+  <!-- Article 4 -->
+  <div class="article-card">
+    <img src="Trauma and Healing.jpg" alt="Trauma and Healing">
+    <div class="article-body">
+      <h3>Trauma and Healing: A Guide for Young Women</h3>
+      <p>Understanding trauma and taking small steps toward recovery-because healing is not linear.</p>
+      <a href="#">Read More </a>
+    </div>
+  </div>
+
+  <!-- Article 5 -->
+  <div class="article-card">
+    <img src="Therapy 101.jpg" alt="Therapy 101">
+    <div class="article-body">
+      <h3>Therapy 101: Is It Right for You?</h3>
+      <p>Learn what therapy really means, how it helps, and how to find the right therapist for your journey.</p>
+      <a href="#">Read More ?</a>
+    </div>
+  </div>
+
+  <!-- Article 6 -->
+  <div class="article-card">
+    <img src="Building Confidence.jpg" alt="Building Confidence">
+    <div class="article-body">
+      <h3>Building Confidence at Any Age</h3>
+      <p>Whether you are 15 or 50, confidence is something you can always build and rebuild.</p>
+      <a href="#">Read More </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <a href="blog-articles.html">Back to Blog</a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+
+</body>
+</html>

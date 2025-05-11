@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Day Digital Detox Challenge | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff9a9e;
+      --secondary: #fad0c4;
+    }
+    .detox-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .detox-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 80px 20px;
+      text-align: center;
+      color: #fff;
+      border-radius: 0 0 40px 40px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .detox-header::after {
+      content: "";
+      background: url('phone-icon.svg') no-repeat;
+      opacity: 0.1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-position: center;
+      background-size: 300px;
+    }
+    .day-plan {
+      background: #fff9fb;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-left: 5px solid var(--primary);
+    }
+    .tracker {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+    }
+    .tracker-day {
+      text-align: center;
+      flex: 1;
+    }
+    .day-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f3f3f3;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .day-circle.completed {
+      background: var(--primary);
+      color: white;
+    }
+    .tip-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+</header>
+
+<div class="detox-header">
+  <h1>7-Day Digital Detox Challenge</h1>
+  <p>Reconnect with yourself beyond the screen</p>
+</div>
+
+<div class="detox-container">
+  <div class="day-plan">
+    <h2>📱 Day 1: Screen-Free Mornings</h2>
+    <p><strong>Challenge:</strong> No devices for first 60 minutes after waking</p>
+    <div class="tip-card">
+      <h3>Alternative Activities:</h3>
+      <ul>
+        <li>Morning journaling</li>
+        <li>Gentle stretching</li>
+        <li>Mindful breakfast</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-plan" style="opacity: 0.6;">
+    <h2>💬 Day 2: Notification Fast</h2>
+    <p><strong>Challenge:</strong> Turn off all non-essential notifications</p>
+  </div>
+
+  <!-- Days 3-7 would follow same pattern -->
+
+  <div class="tracker">
+    <div class="tracker-day">
+      <div class="day-circle completed">1</div>
+      <small>Day 1</small>
+    </div>
+    <div class="tracker-day">
+      <div class="day-circle">2</div>
+      <small>Day 2</small>
+    </div>
+    <!-- Additional days -->
+  </div>
+
+  <div style="text-align: center; margin: 40px 0;">
+    <button class="btn" style="background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.1rem; cursor: pointer;">
+      Join Challenge
+    </button>
+    <p style="margin-top: 15px;">We'll send you daily guides and reminders</p>
+  </div>
+</div>
+
+<footer style="background: var(--secondary); padding: 30px; text-align: center;">
+  <p>Your attention is precious - reclaim it!</p>
+</footer>
+
+</body>
+</html>

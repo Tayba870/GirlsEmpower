@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding the Teen Brain Podcast | GirlEmpower+</title>
+  <!-- Same header and styles as podcast template above, changing colors -->
+  <style>
+    /* Same as above, but change --primary to #42C2FF */
+    :root {
+      --primary: #42C2FF;
+      --secondary: #FF6584;
+      --accent: #6C63FF;
+      --dark: #2D3748;
+      --light: #F7FAFC;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+      background-color: var(--light);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    
+    .podcast-header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .podcast-header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+    }
+    
+    .podcast-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .podcast-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem 3rem;
+    }
+    
+    .podcast-content {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-top: -3rem;
+      position: relative;
+    }
+    
+    .podcast-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    
+    .audio-player {
+      width: 100%;
+      margin: 2rem 0;
+      border-radius: 10px;
+    }
+    
+    .download-section {
+      background: #f0f7ff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    
+    .download-btn {
+      background: var(--primary);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .download-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+    
+    @media (max-width: 768px) {
+      .podcast-header h1 {
+        font-size: 2rem;
+      }
+      
+      .podcast-image {
+        height: 250px;
+      }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="GirlEmpower+ Logo"> GirlEmpower+
+  </div>
+</header>
+
+<div class="podcast-header">
+  <h1>Understanding the Teen Brain</h1>
+  <div class="podcast-meta">
+    <span>Season 2, Episode 7</span>
+    <span></span>
+    <span>52 min</span>
+  </div>
+</div>
+
+<div class="podcast-container">
+  <div class="podcast-content">
+    <img src="Podcast cover image.png" alt="Podcast cover image" class="podcast-image">
+    
+    <h2>Episode Summary</h2>
+    <p>Neuroscientist Dr. Michael Chen explains the latest research on adolescent brain development and how it affects teen behavior, decision-making, and emotional regulation.</p>
+    
+    <audio controls class="audio-player">
+      <source src="teen-brain-podcast.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    
+    <div class="download-section">
+      <h3>Download This Episode</h3>
+      <p>Save this episode to listen offline or share with others</p>
+      <a href="teen-brain-podcast.mp3" download="GirlEmpower-Teen-Brain-Podcast.mp3" class="download-btn">
+        <i class="fas fa-file-audio"></i> Download MP3
+      </a>
+    </div>
+    
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Why teens take more risks (it's not just peer pressure)</li>
+      <li>The sleep-mental health connection</li>
+      <li>How to support healthy brain development</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Follow Us for Daily Inspiration</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Day Confidence Challenge | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .challenge-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .challenge-header {
+      background: linear-gradient(135deg, #ffc3a0, #ffafbd);
+      padding: 60px 20px;
+      text-align: center;
+      color: #c62828;
+      border-radius: 0 0 30px 30px;
+      margin-bottom: 40px;
+    }
+    .day-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(255, 138, 128, 0.2);
+      border-left: 5px solid #ff8a80;
+      transition: transform 0.3s ease;
+    }
+    .day-card:hover {
+      transform: translateY(-5px);
+    }
+    .check-in {
+      background: #ffebee;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .check-in input {
+      margin-right: 10px;
+    }
+    .progress-tracker {
+      height: 10px;
+      background: #ffcdd2;
+      border-radius: 10px;
+      margin: 30px 0;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      background: #ef5350;
+      width: 0%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+</header>
+
+<div class="challenge-header">
+  <h1>7-Day Confidence Challenge</h1>
+  <p>Small daily actions to build unshakable self-belief</p>
+</div>
+
+<div class="challenge-container">
+  <div class="progress-tracker">
+    <div class="progress" style="width: 14%"></div>
+  </div>
+
+  <div class="day-card">
+    <h2>Day 1: Self-Appreciation</h2>
+    <p><strong>Action:</strong> Write down 3 things you appreciate about yourself</p>
+    <p><strong>Why it works:</strong> Shifts focus from criticism to positive qualities</p>
+    <div class="check-in">
+      <input type="checkbox" id="day1">
+      <label for="day1">I completed today's challenge</label>
+    </div>
+  </div>
+
+  <div class="day-card" style="opacity: 0.6;">
+    <h2>Day 2: Power Dressing</h2>
+    <p><strong>Action:</strong> Wear something that makes you feel powerful</p>
+    <p><strong>Why it works:</strong> Clothing affects our psychology and posture</p>
+  </div>
+
+  <!-- Days 3-7 cards would follow same structure -->
+
+  <div style="text-align: center; margin: 40px 0;">
+    <button class="btn" style="background: #ef5350; color: white; border: none; padding: 12px 30px; border-radius: 30px; font-size: 1.1rem; cursor: pointer;">
+      Start Challenge
+    </button>
+    <p style="margin-top: 15px; font-size: 0.9rem;">We'll send you daily reminders</p>
+  </div>
+</div>
+
+<footer style="background: #ffcdd2; padding: 20px; text-align: center; color: #c62828;">
+  <p>Confidence is a muscle - let's exercise it daily!</p>
+</footer>
+
+<script>
+  // Simple interaction for demo
+  document.querySelector('#day1').addEventListener('change', function() {
+    if(this.checked) {
+      document.querySelector('.progress').style.width = '28%';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recognizing Anxiety in Children | GirlEmpower+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .logo img {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .menu-toggle {
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Navigation */
+    nav {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(252, 228, 236, 0.98);
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    nav.active {
+      display: flex;
+      max-height: 500px;
+    }
+
+    nav ul {
+      list-style-type: none;
+    }
+
+    nav a {
+      color: #d63384;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-bottom: 1px solid #f8bbd0;
+      transition: all 0.3s ease;
+      display: block;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #fbcfe8;
+      padding-left: 35px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffcce6, #ff99cc);
+      color: #880e4f;
+      padding: 100px 20px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    h1, h2, h3 {
+      color: #c2185b;
+    }
+
+    .section {
+      margin-bottom: 50px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #d63384;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .section-title::before {
+      content: "";
+      color: #f06292;
+      font-size: 2rem;
+      position: absolute;
+      left: 0;
+      top: -5px;
+    }
+
+    .section-text {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    
+
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #ffcce6, #ffb3d9);
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons {
+      margin: 20px 0;
+    }
+
+    .social-icons a {
+      margin: 0 15px;
+      font-size: 1.5rem;
+      color: #c2185b;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: #880e4f;
+      transform: translateY(-5px);
+    }
+
+    footer p {
+      color: #880e4f;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        position: static;
+        background: transparent;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        max-height: none !important;
+        box-shadow: none;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        padding: 10px 20px;
+        border: none;
+        font-weight: 500;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 10px 20px;
+        transform: translateY(-3px);
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .section {
+        padding: 40px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
+    .section:nth-child(5) { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()"></div>
+</header>
+
+<!-- Navigation -->
+<nav id="mainNav">
+
+  <ul>
+    <li><a href="blog-articles.html">Blog / Articles</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="chat-with-therapist.html">Chat with a Therapist</a></li>
+    <li><a href="books.html">PDFs</a></li>
+  </ul>
+</nav>
+
+<!-- Content Section -->
+<div class="content">
+  <h1>Recognizing Anxiety in Children</h1>
+  <p>Anxiety is common among children and often goes unnoticed. As a parent or educator, recognizing early signs is key to offering timely support.</p>
+
+  <div class="section">
+    <h2 class="section-title">Common Signs of Anxiety in Kids</h2>
+    <ul>
+      <li>Frequent complaints of headaches or stomachaches with no medical cause</li>
+      <li>Difficulty sleeping or nightmares</li>
+      <li>Excessive worrying about school performance or social situations</li>
+      <li>Avoiding school or social events</li>
+      <li>Overreacting to small problems</li>
+      <li>Seeking constant reassurance</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">What You Can Do</h2>
+    <ul>
+      <li>Validate their feelings - do not dismiss their fears</li>
+      <li>Create a calm and safe environment</li>
+      <li>Encourage open conversations</li>
+      <li>Use books or stories to talk about anxiety</li>
+      <li>Consider professional support if symptoms persist</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Visual Guide: Anxiety vs Normal Worries</h2>
+    <img src="anxiety chart.jpg" alt="Anxiety vs Normal Worries Chart" style="width:100%; max-width:600px; display:block; margin:20px auto; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Helpful Video</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/yqR77sa4EVE" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Quick Tip</h2>
+    <p>If a child's anxiety starts affecting sleep, eating, schoolwork, or relationships, it may be time to seek help from a counselor or psychologist.</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Follow Us for More Resources</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

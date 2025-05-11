@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Science of Sleep for Teen Girls | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .logo img {
+      width: 145px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    /* Navigation */
+    .nav-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      margin-left: 20px;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    nav a {
+      color: #d63384;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 1024px) {
+      nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #fce4ec;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+      }
+
+      nav.active {
+        transform: translateY(0);
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid #f8bbd0;
+        border-radius: 0;
+      }
+
+      nav a:hover {
+        background-color: #fbcfe8;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffe0f0, #f8bbd0);
+      color: #880e4f;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero p.subtitle {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    /* Article Content */
+    .article-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .article-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      color: #a85584;
+      font-size: 0.9rem;
+    }
+
+    .article-content {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .article-content h2 {
+      color: #c2185b;
+      margin: 25px 0 15px;
+      font-size: 1.8rem;
+    }
+
+    .article-content h3 {
+      color: #d63384;
+      margin: 20px 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .article-content ul, .article-content ol {
+      margin: 20px 0 20px 30px;
+    }
+
+    .article-content li {
+      margin-bottom: 10px;
+    }
+
+    .highlight-box {
+      background: #fff3f9;
+      border-left: 4px solid #f06292;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .tip-box {
+      background: #f0f8ff;
+      border-left: 4px solid #64b5f6;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .tip-box h4 {
+      color: #1976d2;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .tip-box h4 i {
+      margin-right: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #fbcfe8;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons {
+      margin: 20px 0;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: #c2185b;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #880e4f;
+    }
+
+    .related-articles {
+      margin: 50px auto;
+      max-width: 800px;
+    }
+
+    .related-articles h3 {
+      color: #d63384;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .related-link {
+      background: #fbcfe8;
+      color: #c2185b;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .related-link:hover {
+      background: #f8bbd0;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header with Navigation -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="GirlEmpower+ Logo" /> GirlEmpower+
+  </div>
+  
+  <div class="nav-container">
+    <nav id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Menstrual-Health.html">Menstrual Health</a></li>
+        <li><a href="therapists-support.html">Therapists</a></li>
+        <li><a href="motivational-zone.html">Motivation</a></li>
+        <li><a href="learn-grow.html">Learn & Grow</a></li>
+        <li><a href="blog-articles.html" class="active">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>The Science of Sleep for Teen Girls</h1>
+  <p class="subtitle">Understanding the crucial connection between sleep, hormones, and mental health during adolescence</p>
+</div>
+
+<!-- Article Content -->
+<div class="article-container">
+  <img src="Teen girl sleeping peacefully.jpg" alt="Teen girl sleeping peacefully" class="article-image">
+  <div class="article-meta">
+    <span><i class="far fa-calendar-alt"></i> Updated: June 15, 2025</span>
+    <span><i class="far fa-clock"></i> Reading time: 8 minutes</span>
+  </div>
+  
+  <div class="article-content">
+    <h2>Why Sleep Matters for Teen Girls</h2>
+    <p>During adolescence, girls undergo significant physical, emotional, and cognitive changes that make quality sleep more important than ever. Research shows that teenage girls need between 8-10 hours of sleep per night, yet most get only 6-7 hours. This chronic sleep deprivation can have serious consequences on mental health, academic performance, and physical development.</p>
+    
+    <div class="highlight-box">
+      <p><strong>Key Fact:</strong> The circadian rhythm (internal body clock) of teenagers shifts about 2 hours later than children or adults, making early bedtimes biologically difficult. This is why many teens naturally prefer staying up late and sleeping in.</p>
+    </div>
+    
+    <h2>The Sleep-Hormone Connection</h2>
+    <p>Sleep plays a crucial role in regulating the hormones that affect teenage girls' physical and emotional health:</p>
+    
+    <ul>
+      <li><strong>Melatonin:</strong> The sleep hormone that regulates your sleep-wake cycle. In teens, melatonin is released later at night, making early sleep difficult.</li>
+      <li><strong>Growth Hormone:</strong> Released during deep sleep, essential for physical development and tissue repair.</li>
+      <li><strong>Cortisol:</strong> The stress hormone that should decrease at night. Poor sleep keeps cortisol levels high.</li>
+      <li><strong>Reproductive Hormones:</strong> Estrogen and progesterone fluctuations during the menstrual cycle can affect sleep quality.</li>
+    </ul>
+    
+    <h3>How Sleep Affects Mental Health</h3>
+    <p>Sleep deprivation in teen girls is strongly linked to:</p>
+    
+    <ul>
+      <li>Increased risk of depression and anxiety</li>
+      <li>Emotional dysregulation and mood swings</li>
+      <li>Poor stress management</li>
+      <li>Decreased cognitive function and memory</li>
+      <li>Higher risk of self-harm and suicidal thoughts</li>
+    </ul>
+    
+    <div class="tip-box">
+      <h4><i class="fas fa-lightbulb"></i> Sleep Tip</h4>
+      <p>Establish a "power-down hour" before bed: dim lights, no screens, and relaxing activities like reading or journaling. This helps signal to your brain that it's time to sleep.</p>
+    </div>
+    
+    <h2>Common Sleep Challenges for Teen Girls</h2>
+    
+    <h3>1. Social Media & Screen Time</h3>
+    <p>The blue light from devices suppresses melatonin production, delaying sleep onset. Social media use at night can also cause emotional arousal that makes falling asleep difficult.</p>
+    
+    <h3>2. Academic Pressure</h3>
+    <p>Between homework, extracurriculars, and part-time jobs, many teens sacrifice sleep to meet obligations. This creates a vicious cycle of fatigue and decreased productivity.</p>
+    
+    <h3>3. Menstrual Cycle Effects</h3>
+    <p>Hormonal changes during different phases of the menstrual cycle can affect sleep quality. Many girls report more sleep disturbances in the week before their period.</p>
+    
+    <h2>Practical Sleep Solutions</h2>
+    
+    <h3>Create a Sleep Sanctuary</h3>
+    <ul>
+      <li>Keep your bedroom cool (60-67 degree faranite is ideal)</li>
+      <li>Use blackout curtains to make the room dark</li>
+      <li>Invest in a comfortable mattress and pillows</li>
+      <li>Remove electronic devices or use blue light filters</li>
+    </ul>
+    
+    <h3>Establish a Consistent Routine</h3>
+    <ol>
+      <li>Go to bed and wake up at the same time every day (even weekends)</li>
+      <li>Develop calming pre-sleep rituals (warm bath, light stretching)</li>
+      <li>Avoid caffeine after 2pm</li>
+      <li>Limit naps to 20-30 minutes earlier in the day</li>
+    </ol>
+    
+    <h3>Nutrition for Better Sleep</h3>
+    <p>Certain foods can promote better sleep:</p>
+    <ul>
+      <li>Complex carbs (whole grains, bananas)</li>
+      <li>Foods rich in tryptophan (turkey, nuts, seeds)</li>
+      <li>Magnesium-rich foods (leafy greens, avocados)</li>
+      <li>Herbal teas (chamomile, lavender)</li>
+    </ul>
+    
+    <div class="highlight-box">
+      <p><strong>Did You Know?</strong> Girls who get adequate sleep have better emotional regulation, improved concentration, stronger immune systems, and healthier skin. Sleep is truly the foundation of wellbeing during adolescence.</p>
+    </div>
+  </div>
+  
+  <div class="related-articles">
+    <h3>Related Articles</h3>
+    <div class="related-links">
+      <a href="mental-health.html" class="related-link">Managing Teen Anxiety</a>
+      <a href="self-care.html" class="related-link">Self-Care for Teens</a>
+      <a href="hormones-101.html" class="related-link">Understanding Your Hormones</a>
+      <a href="digital-detox.html" class="related-link">Digital Detox Guide</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Join Our Sleep Challenge Starting Next Month!</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-pinterest"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 20px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+  </p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+    
+    const icon = document.querySelector('.menu-toggle i');
+    if (nav.classList.contains('active')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  }
+  
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('#mainNav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        toggleMenu();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

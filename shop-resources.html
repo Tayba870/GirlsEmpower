@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop & Resources | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .logo img {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .menu-toggle {
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: rotate(90deg);
+    }
+
+    /* Navigation */
+    nav {
+      display: none;
+      flex-direction: column;
+      background-color: #fce4ec;
+      position: absolute;
+      top: 65px;
+      left: 0;
+      width: 100%;
+    }
+
+    nav.active {
+      display: flex;
+    }
+
+    nav ul {
+      list-style-type: none;
+    }
+
+    nav a {
+      color: #d63384;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-bottom: 1px solid #f8bbd0;
+      transition: background 0.3s ease;
+      display: block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #fbcfe8;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffe0f0, #f8bbd0);
+      color: #880e4f;
+      padding: 100px 20px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* Illustration */
+    .illustration {
+      text-align: center;
+      margin-top: -40px;
+    }
+
+    .illustration img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #d63384;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title::before {
+      content: "";
+      margin-right: 10px;
+    }
+
+    .section-text {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .product-card {
+      background: #fff3f9;
+      border-left: 5px solid #f06292;
+      padding: 20px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .product-card h3 {
+      margin-bottom: 10px;
+      color: #c2185b;
+    }
+
+    .product-card p {
+      color: #555;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .cta a {
+      background-color: #f06292;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta a:hover {
+      background-color: #d63384;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #fbcfe8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: #c2185b;
+      text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        position: static;
+        background: transparent;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        padding: 10px 15px;
+        border: none;
+        font-weight: 500;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()"></div>
+</header>
+
+<!-- Navigation -->
+<nav id="mainNav">
+  <ul>
+    
+    <li><a href="blog-articles.html">Blog / Articles</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="chat-with-therapist.html">Chat with a Therapist</a></li>
+    <li><a href="books.html">PDFs</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Shop & Resources</h1>
+  <p>Tools to support your well-being all in one place.</p>
+</div>
+
+<!-- Illustration -->
+<div class="illustration">
+  <img src="https://img.icons8.com/emoji/344/shopping-bag-emoji.png" alt="Shopping Bag Illustration" />
+</div>
+
+<!-- Content Section -->
+<div class="content">
+
+  <!-- Products -->
+  <div class="section">
+    <h2 class="section-title">Featured Products</h2>
+    <p class="section-text">Discover our carefully selected items designed to uplift, inspire, and support your journey toward emotional wellness.</p>
+
+    <div class="products">
+      <div class="product-card">
+        <h3>Empowerment Journals</h3>
+        <p>Daily prompts and affirmations to help you connect with yourself and grow through reflection.</p>
+      </div>
+      <div class="product-card">
+        <h3>Mental Wellness Apps</h3>
+        <p>Downloadable apps for mindfulness, meditation, mood tracking, and self-care routines.</p>
+      </div>
+      <div class="product-card">
+        <h3>Self-Care Kits</h3>
+        <p>Curated boxes with candles, crystals, journals, and more perfect for a weekly reset.</p>
+      </div>
+      <div class="product-card">
+        <h3>Guided Workbooks</h3>
+        <p>Step-by-step guides on healing from trauma, building confidence, and managing anxiety.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Downloads -->
+  <div class="section">
+    <h2 class="section-title"> Digital Resources</h2>
+    <p class="section-text">Download free and premium resources that support personal growth, parenting, and classroom tools.</p>
+    <ul>
+      <li>Affirmation Printables</li>
+      <li>Emotion Charts for Kids</li>
+      <li>Trauma-Informed Resource Packs</li>
+      <li>Mindfulness Coloring Pages</li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a href="View-All-Products.html">View All Products</a>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Follow Us for Daily Inspiration</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
