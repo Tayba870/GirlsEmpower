@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health First Aid Guide | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fef6f9;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 20px 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.03);
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 12px;
+    }
+
+    .guide-hero {
+      background: linear-gradient(120deg, #ffe0f0, #f8bbd0);
+      color: #880e4f;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide-hero::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+    }
+
+    .guide-hero::after {
+      content: "";
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 250px;
+      height: 250px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+    }
+
+    .guide-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .guide-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+      position: relative;
+      z-index: 2;
+    }
+
+    .guide-container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 30px;
+    }
+
+    .guide-preview {
+      background: white;
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(240, 98, 146, 0.2);
+    }
+
+    .guide-preview h2 {
+      color: #d63384;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .guide-preview h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #f8bbd0;
+    }
+
+    .guide-preview ul {
+      list-style: none;
+      margin: 25px 0;
+    }
+
+    .guide-preview li {
+      padding: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.05rem;
+    }
+
+    .guide-preview li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #f06292;
+      font-weight: bold;
+    }
+
+    .download-section {
+      text-align: center;
+      margin: 40px 0;
+      padding: 30px;
+      background: rgba(240, 98, 146, 0.05);
+      border-radius: 12px;
+      border: 2px dashed rgba(240, 98, 146, 0.3);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #f06292, #d63384);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(240, 98, 146, 0.3);
+      border: none;
+      cursor: pointer;
+      font-size: 1.05rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(240, 98, 146, 0.4);
+    }
+
+    .btn i {
+      margin-right: 8px;
+    }
+
+    .file-info {
+      font-size: 0.95rem;
+      color: #777;
+      margin-top: 15px;
+    }
+
+    .algee-plan {
+      background: linear-gradient(135deg, rgba(255,154,158,0.1), rgba(250,208,196,0.1));
+      padding: 30px;
+      border-radius: 12px;
+      margin: 40px 0;
+      border-left: 5px solid #f06292;
+    }
+
+    .algee-plan h3 {
+      color: #d63384;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .algee-plan p {
+      margin: 15px 0;
+      padding-left: 30px;
+      position: relative;
+      font-weight: 500;
+    }
+
+    .algee-plan p strong {
+      color: #d63384;
+      font-size: 1.2rem;
+    }
+
+    .algee-plan p::before {
+      content: "•";
+      position: absolute;
+      left: 10px;
+      color: #f06292;
+      font-weight: bold;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    footer p:first-child {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .guide-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .guide-preview {
+        padding: 30px;
+      }
+      
+      .guide-preview h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+</header>
+
+<div class="guide-hero">
+  <h1>Mental Health First Aid Guide</h1>
+  <p>Essential knowledge to support yourself and others</p>
+</div>
+
+<div class="guide-container">
+  <div class="guide-preview">
+    <h2>What's Inside This Guide:</h2>
+    <ul>
+      <li>Recognizing signs of common mental health challenges</li>
+      <li>ALGEE action plan for mental health first aid</li>
+      <li>How to start difficult conversations</li>
+      <li>Crisis resource directory</li>
+      <li>Self-care for helpers</li>
+    </ul>
+    
+    <div class="download-section">
+      <a href="Being-a-Mental-Health-First-Aider-Your-guide-to-the-role" class="btn" download>
+        <i class="fas fa-download"></i> Download Full Guide (PDF)
+      </a>
+      <p class="file-info">24 pages | Updated May 2023</p>
+    </div>
+    
+    <div class="algee-plan">
+      <h3>Quick Reference: The ALGEE Action Plan</h3>
+      <p><strong>A</strong> - Assess for risk of harm or suicide</p>
+      <p><strong>L</strong> - Listen nonjudgmentally</p>
+      <p><strong>G</strong> - Give reassurance and information</p>
+      <p><strong>E</strong> - Encourage appropriate professional help</p>
+      <p><strong>E</strong> - Encourage self-help and other support strategies</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <p>For immediate crisis support, contact your local helpline</p>
+    <p class="copyright">© 2025 GirlEmpower+. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

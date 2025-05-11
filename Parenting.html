@@ -1,0 +1,475 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parenting Resources | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6C63FF;
+      --secondary: #FF6584;
+      --accent: #42C2FF;
+      --dark: #2D3748;
+      --light: #F7FAFC;
+      --success: #48BB78;
+    }
+    
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+      background-color: var(--light);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    
+    .category-header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .category-header::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+    
+    .category-header::after {
+      content: "";
+      position: absolute;
+      bottom: -80px;
+      right: -30px;
+      width: 250px;
+      height: 250px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+    
+    .category-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .category-header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .category-header p {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      font-size: 1.1rem;
+    }
+    
+    .resources-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .parenting-tip {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      border-left: 5px solid var(--success);
+      transition: transform 0.3s ease;
+    }
+    
+    .parenting-tip:hover {
+      transform: translateY(-3px);
+    }
+    
+    .tip-icon {
+      font-size: 2rem;
+      margin-right: 1.5rem;
+      color: var(--success);
+      min-width: 50px;
+      text-align: center;
+    }
+    
+    .parenting-tip h3 {
+      color: var(--dark);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    
+    .age-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    
+    .age-group {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--primary);
+    }
+    
+    .age-group:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .age-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: var(--light);
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+    }
+    
+    .age-group h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-family: 'Merriweather', serif;
+    }
+    
+    .age-group p {
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    
+    .age-group ul {
+      text-align: left;
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .age-group li {
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+    
+    .age-group li:before {
+      content: "•";
+      color: var(--success);
+      font-weight: bold;
+      position: absolute;
+      left: -1rem;
+    }
+    
+    .read-more {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.3s ease;
+    }
+    
+    .read-more:hover {
+      color: var(--secondary);
+    }
+    
+    .resource-section {
+      margin: 3rem 0;
+    }
+    
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    
+    .article-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .article-content {
+      padding: 1.5rem;
+    }
+    
+    .article-date {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .article-card h3 {
+      font-family: 'Merriweather', serif;
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+    
+    .article-excerpt {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0.5rem 0 1rem;
+    }
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    footer p {
+      margin: 0.5rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .parenting-tip {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .tip-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      
+      .age-groups {
+        grid-template-columns: 1fr;
+      }
+      
+      .category-header h1 {
+        font-size: 2rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="GirlEmpower+ Logo" width="40" height="40"> GirlEmpower+
+  </div>
+</header>
+
+<div class="category-header">
+  <div class="category-icon">👩‍👧</div>
+  <h1>Parenting Resources</h1>
+  <p>Supporting your daughter's journey through childhood and adolescence</p>
+</div>
+
+<div class="resources-container">
+  <div class="parenting-tip">
+    <div class="tip-icon">💡</div>
+    <div>
+      <h3>Weekly Parenting Tip</h3>
+      <p>This week: "Practice active listening with your teen - reflect back what you hear without immediately offering solutions. Sometimes they need to be heard more than they need advice."</p>
+    </div>
+  </div>
+
+  <div class="age-groups">
+    <div class="age-group">
+      <div class="age-icon">👧</div>
+      <h3>Ages 8-11</h3>
+      <p>Pre-teen development resources</p>
+      <ul>
+        <li>Starting conversations about puberty</li>
+        <li>Building self-esteem foundations</li>
+        <li>Navigating friendship changes</li>
+        <li>Digital safety basics</li>
+      </ul>
+      <a href="8to11.html" class="read-more">Explore <span>→</span></a>
+    </div>
+    <div class="age-group">
+      <div class="age-icon">👩</div>
+      <h3>Ages 12-14</h3>
+      <p>Early adolescence support</p>
+      <ul>
+        <li>Menstrual health guidance</li>
+        <li>Social media boundaries</li>
+        <li>Emotional regulation tools</li>
+        <li>Body positivity strategies</li>
+      </ul>
+      <a href="12to14.html" class="read-more">Explore <span>→</span></a>
+    </div>
+    <div class="age-group">
+      <div class="age-icon">👩</div>
+      <h3>Ages 15-18</h3>
+      <p>Teen empowerment resources</p>
+      <ul>
+        <li>Preparing for independence</li>
+        <li>Healthy relationship education</li>
+        <li>Academic/career planning</li>
+        <li>Mental health first aid</li>
+      </ul>
+      <a href="15to18.html" class="read-more">Explore <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="resource-section">
+    <h2 class="section-title">📚 Must-Read Articles</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <img src="parenting teen.jpg" alt="Parenting teens" width="300" height="180">
+        <div class="article-content">
+          <div class="article-date">May 5, 2023</div>
+          <h3>10 Mistakes Even Great Parents Make With Teens</h3>
+          <p class="article-excerpt">Common parenting pitfalls during adolescence and how to avoid them...</p>
+          <a href="parenting-mistakes.html" class="read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="digital-parenting.jpg" alt="Digital parenting" width="300" height="180">
+        <div class="article-content">
+          <div class="article-date">April 22, 2023</div>
+          <h3>The Digital Parenting Handbook</h3>
+          <p class="article-excerpt">Balancing safety and trust in the smartphone era...</p>
+          <a href="digital-parenting.html" class="read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="teen-communication.jpg" alt="Parent-child communication" width="300" height="180">
+        <div class="article-content">
+          <div class="article-date">April 8, 2023</div>
+          <h3>Getting Your Teen to Actually Talk to You</h3>
+          <p class="article-excerpt">Communication techniques that work with adolescents...</p>
+          <a href="teen-communication.html" class="read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-section">
+    <h2 class="section-title">🎧 Parent Podcasts</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <img src="Parenting podcast.jpg" alt="Parenting podcast" width="300" height="180">
+        <div class="article-content">
+          <h3>Raising Empowered Girls</h3>
+          <p class="article-excerpt">Weekly conversations with child psychologists and parents...</p>
+          <a href="empowered-girls-podcast.html" class="read-more">Listen Now <span>→</span></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="Teen development.jpg" alt="Teen development" width="300" height="180">
+        <div class="article-content">
+          <h3>Understanding the Teen Brain</h3>
+          <p class="article-excerpt">Neuroscience insights for better parenting...</p>
+          <a href="teen-brain-podcast.html" class="read-more">Listen Now <span>→</span></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="Parent support.jpg" alt="Parent support" width="300" height="180">
+        <div class="article-content">
+          <h3>Parent Support Circle</h3>
+          <p class="article-excerpt">Real parents sharing real challenges and solutions...</p>
+          <a href="parent-support-podcast.html" class="read-more">Listen Now <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+  <p>Join our private parenting support community</p>
+  <p style="font-size: 0.9rem; margin-top: 10px;">© 2025 GirlEmpower+. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn & Grow | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .logo img {
+      width: 80px;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Hamburger Menu */
+    .menu-toggle {
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: none;
+    }
+
+    .menu-toggle:hover {
+      transform: rotate(90deg);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #d63384;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #fbcfe8;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffe0f0, #f8bbd0);
+      color: #880e4f;
+      padding: 100px 20px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      background: #fff3f9;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-left: 5px solid #f06292;
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #d63384;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title::before {
+      content: "";
+      margin-right: 10px;
+    }
+
+    .section-text {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
+    ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -2px;
+      font-size: 1rem;
+    }
+
+    /* Enhanced Footer */
+    footer {
+      background: linear-gradient(135deg, #f8bbd0, #fce4ec);
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: auto;
+      border-top: 1px solid rgba(216, 51, 132, 0.2);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+
+    .footer-column h3 {
+      color: #880e4f;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: #d63384;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s ease, padding-left 0.3s ease;
+      display: block;
+    }
+
+    .footer-links a:hover {
+      color: #d63384;
+      padding-left: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .social-links a {
+      color: #c2185b;
+      background: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px);
+      color: white;
+      background: #d63384;
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(216, 51, 132, 0.2);
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      color: #880e4f;
+    }
+
+    .newsletter-form {
+      display: flex;
+      margin-top: 15px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #f8bbd0;
+      border-radius: 20px 0 0 20px;
+      outline: none;
+    }
+
+    .newsletter-form button {
+      background: #d63384;
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 20px 20px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #c2185b;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #fce4ec;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      nav a {
+        padding: 15px 30px;
+        border-radius: 0;
+        border-bottom: 1px solid #f8bbd0;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section {
+        padding: 20px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()"></div>
+  <nav id="mainNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Menstrual Health.html">Menstrual Health</a></li>
+      <li><a href="therapists support.html">Therapists & Support</a></li>
+      <li><a href="motivational zone.html">Motivational Zone</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Learn & Grow</h1>
+  <p>Expand your mind. Empower your spirit. Grow with us.</p>
+</div>
+
+<!-- Content Section -->
+<div class="content">
+
+  <!-- Section 1: Expert Articles -->
+  <div class="section">
+    <h2 class="section-title">Expert Articles</h2>
+    <p class="section-text">
+      Dive into research-backed articles on mental health, emotional resilience, and personal growth, written by women for women. Topics include:
+    </p>
+    <ul>
+      <li>Understanding anxiety and how to manage it</li>
+      <li>Healing from trauma and building self-worth</li>
+      <li>Setting healthy boundaries in relationships</li>
+      <li>Practicing mindfulness and self-care</li>
+    </ul>
+  </div>
+
+  <!-- Section 2: Workshops -->
+  <div class="section">
+    <h2 class="section-title">Live Workshops</h2>
+    <p class="section-text">
+      Join live virtual workshops led by certified coaches and therapists. Topics include:
+    </p>
+    <ul>
+      <li>Emotional Intelligence for Women Leaders</li>
+      <li>Breaking Cycles of Burnout</li>
+      <li>Reclaiming Your Voice After Silence</li>
+      <li>Building Confidence at Any Age</li>
+    </ul>
+  </div>
+
+  <!-- Section 3: Coping Techniques -->
+  <div class="section">
+    <h2 class="section-title">Coping Techniques</h2>
+    <p class="section-text">
+      Learn practical tools to manage stress, regulate emotions, and build resilience:
+    </p>
+    <ul>
+      <li>Breathing exercises for instant calm</li>
+      <li>Journaling prompts for self-reflection</li>
+      <li>Grounding techniques for anxiety</li>
+      <li>Building a daily self-care routine</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Enhanced Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Menstrual Health.html">Menstrual Health</a></li>
+        <li><a href="therapists support.html">Therapists & Support</a></li>
+        <li><a href="motivational zone.html">Motivational Zone</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h3>Resources</h3>
+      <ul class="footer-links">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="guides.html">Guides</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="tools.html">Interactive Tools</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h3>Connect With Us</h3>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      
+      <h3 style="margin-top: 30px;">Newsletter</h3>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address">
+        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+  
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.  | <a href="privacy.html" style="color: #880e4f;">Privacy Policy</a> | <a href="terms.html" style="color: #880e4f;">Terms of Service</a></p>
+  </div>
+</footer>
+
+<!-- JS Toggle Menu -->
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

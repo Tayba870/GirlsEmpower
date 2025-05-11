@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Science Career | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: #faf5ff;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #7b1fa2, #9c27b0);
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .career-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px 30px;
+    }
+    
+    .career-hero {
+      background: linear-gradient(135deg, #8e24aa, #ab47bc);
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+      border-radius: 0 0 40px 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .career-hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .career-hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .pathway {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+      border: 1px solid #f0e5ff;
+    }
+    
+    .pathway h2 {
+      color: #7b1fa2;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .pathway h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #e1bee7;
+    }
+    
+    .pathway p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+    
+    .skill-pill {
+      display: inline-block;
+      background: #f3e5f5;
+      color: #7b1fa2;
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin: 8px 5px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .skill-pill:hover {
+      background: #7b1fa2;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .career-levels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    
+    .career-level {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-top: 5px solid #e1bee7;
+      transition: transform 0.3s ease;
+    }
+    
+    .career-level:hover {
+      transform: translateY(-10px);
+    }
+    
+    .career-level h3 {
+      color: #7b1fa2;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    
+    .career-level p:first-of-type {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .career-level p:last-of-type {
+      color: #9c27b0;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    
+    .salary-chart {
+      height: 250px;
+      background: #f3e5f5;
+      border-radius: 15px;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+    
+    .salary-bar {
+      position: absolute;
+      bottom: 0;
+      height: 70%;
+      width: 25%;
+      left: 15%;
+      background: linear-gradient(to top, #9c27b0, #ba68c8);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .cta-button {
+      text-align: center;
+      margin: 50px 0;
+    }
+    
+    .btn {
+      background: linear-gradient(135deg, #8e24aa, #ab47bc);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
+    }
+    
+    footer {
+      background: linear-gradient(135deg, #7b1fa2, #9c27b0);
+      padding: 30px;
+      text-align: center;
+      color: white;
+      margin-top: 60px;
+      font-size: 1.1rem;
+    }
+    
+    footer p {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      .career-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .pathway {
+        padding: 25px;
+      }
+      
+      .career-levels {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+</header>
+
+<div class="career-hero">
+  <h1>Data Science Career Path</h1>
+  <p>Turning information into powerful insights that drive decisions</p>
+</div>
+
+<div class="career-container">
+  <div class="pathway">
+    <h2>What Data Scientists Do</h2>
+    <p>Data scientists analyze and interpret complex data to help organizations make strategic decisions. They combine expertise in statistics, programming, and machine learning to uncover hidden patterns, predict trends, and solve critical business problems.</p>
+    
+    <h3 style="margin-top: 30px;">Key Skills Needed:</h3>
+    <div>
+      <span class="skill-pill">Python/R Programming</span>
+      <span class="skill-pill">Statistics & Probability</span>
+      <span class="skill-pill">Machine Learning</span>
+      <span class="skill-pill">Data Visualization</span>
+      <span class="skill-pill">SQL Databases</span>
+      <span class="skill-pill">Data Wrangling</span>
+      <span class="skill-pill">Big Data Technologies</span>
+      <span class="skill-pill">Business Acumen</span>
+    </div>
+  </div>
+
+  <div class="pathway">
+    <h2>Career Pathway</h2>
+    <div class="career-levels">
+      <div class="career-level">
+        <h3>Entry Level</h3>
+        <p>Data Analyst</p>
+        <p>$65k-$85k</p>
+      </div>
+      <div class="career-level">
+        <h3>Mid Level</h3>
+        <p>Data Scientist</p>
+        <p>$90k-$120k</p>
+      </div>
+      <div class="career-level">
+        <h3>Senior Level</h3>
+        <p>Lead Data Scientist</p>
+        <p>$130k-$180k</p>
+      </div>
+    </div>
+    
+    <div class="salary-chart">
+      <div class="salary-bar">$98k Median Salary</div>
+    </div>
+  </div>
+
+  <div class="cta-button">
+    <button class="btn">
+      Explore Learning Resources
+    </button>
+  </div>
+</div>
+
+<footer>
+  <p>Did you know? Women now make up 32% of data scientists - and this number is growing every year!</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GirlEmpower+ | Home</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e9bcb7;
+      --primary-dark: #d67b76;
+      --secondary: #5d2e2f;
+      --light: #fffefc;
+      --accent: #f4dde0;
+      --text: #333333;
+    }
+    
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      background-color: var(--primary);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Contact & Social Icons Section */
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    
+    .nav-icons a {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.2);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .nav-icons a:hover {
+      color: var(--primary-dark);
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.3);
+    }
+    
+    /* Video Logo Container */
+    .video-logo {
+      width: 160px;
+      height: auto;
+      transition: all 0.3s ease;
+    }
+    
+    .video-logo:hover {
+      transform: scale(1.05);
+    }
+    
+    .video-logo video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .logo-name {
+      color: var(--secondary);
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 8px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    
+    /* Hamburger Icon */
+    .menu-toggle {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px;
+      z-index: 1001;
+    }
+    
+    .menu-toggle span {
+      width: 30px;
+      height: 3px;
+      background-color: var(--secondary);
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    /* Slide-out Menu */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: var(--accent);
+      padding-top: 80px;
+      transition: left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      z-index: 1000;
+      overflow-y: auto;
+      box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    }
+    
+    .side-menu.active {
+      left: 0;
+    }
+    
+    .side-menu ul {
+      list-style: none;
+      padding: 0 20px;
+    }
+    
+    .side-menu li a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      margin-bottom: 5px;
+    }
+    
+    .side-menu li a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    /* Overlay to close menu when clicked outside */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+      display: none;
+      z-index: 999;
+      transition: all 0.3s ease;
+    }
+    
+    .overlay.active {
+      display: block;
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 5% 80px;
+      background: linear-gradient(135deg, rgba(233,188,183,0.1) 0%, rgba(244,221,224,0.2) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      opacity: 0.2;
+      z-index: 0;
+    }
+    
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--primary-dark) 0%, transparent 70%);
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      color: var(--secondary);
+      margin-bottom: 25px;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--text);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .cta-buttons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      background-color: var(--primary-dark);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(214, 123, 118, 0.3);
+      min-width: 200px;
+    }
+    
+    .cta-buttons a:hover {
+      background-color: var(--secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(93, 46, 47, 0.3);
+    }
+    
+    .cta-buttons a i {
+      margin-right: 8px;
+    }
+    
+    /* Mission Overview Section */
+    .section {
+      padding: 80px 5%;
+      text-align: center;
+      position: relative;
+    }
+    
+    .section h2 {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      border-radius: 2px;
+    }
+    
+    .section p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+    
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 50px auto;
+    }
+    
+    .feature-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      text-align: center;
+      border: 1px solid rgba(233,188,183,0.3);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    
+    .feature-card i {
+      font-size: 2.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      background: rgba(233,188,183,0.1);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .feature-card h3 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    .feature-card p {
+      color: var(--text);
+      font-size: 1rem;
+    }
+    
+    /* Featured Content Section */
+    .featured-content {
+      background-color: white;
+      padding: 80px 5%;
+      text-align: center;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23e9bcb7" fill-opacity="0.05" d="M30,10L50,30L70,10L90,30L70,50L90,70L70,90L50,70L30,90L10,70L30,50L10,30L30,10Z"/></svg>');
+      background-size: 200px;
+    }
+    
+    .featured-content h2 {
+      font-size: 2.8rem;
+      margin-bottom: 50px;
+      color: var(--secondary);
+    }
+    
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      position: relative;
+      border: 1px solid rgba(233,188,183,0.2);
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+    
+    .card-media {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+    }
+    
+    .card-media iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .card-content {
+      padding: 25px;
+      text-align: left;
+    }
+    
+    .card h3 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    
+    .card p {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary-dark);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .card-link:hover {
+      color: var(--secondary);
+    }
+    
+    .card-link i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .card-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Floating Elements */
+    .floating {
+      position: absolute;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .floating-1 {
+      top: 20%;
+      left: 5%;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .floating-2 {
+      bottom: 15%;
+      right: 8%;
+      animation: float 8s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 60px 5% 30px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .footer-logo {
+      width: 120px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+      transform: translateY(-3px);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--secondary);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .section h2 {
+        font-size: 2.4rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+      
+      .nav-icons {
+        gap: 15px;
+      }
+      
+      .nav-icons a {
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+      }
+      
+      .video-logo {
+        width: 120px;
+      }
+      
+      .hero {
+        padding: 80px 20px 60px;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .cta-buttons a {
+        padding: 12px 25px;
+        min-width: 160px;
+      }
+      
+      .section h2 {
+        font-size: 2rem;
+      }
+      
+      .feature-card {
+        padding: 25px 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section {
+        padding: 60px 20px;
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .cta-buttons a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <!-- Left Corner: Contact & Social Icons -->
+    <div class="nav-icons">
+      <a href="contact us.html" title="Contact Us"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Center: Video Logo -->
+    <div class="video-logo">
+      <video autoplay muted loop playsinline>
+        <source src="GirlEmpower+logo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="logo-name">GirlEmpower+</div>
+    </div>
+
+    <!-- Right: Hamburger Menu Toggle -->
+    <div class="menu-toggle" id="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Side Menu (Hamburger Menu) -->
+  <div class="side-menu" id="sideMenu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="Menstrual Health.html"><i class="fas fa-female"></i> Menstrual Health</a></li>
+      <li><a href="therapists support.html"><i class="fas fa-hands-helping"></i> Therapists & Support</a></li>
+      <li><a href="motivational zone.html"><i class="fas fa-fire"></i> Motivational Zone</a></li>
+      <li><a href="learn-grow.html"><i class="fas fa-seedling"></i> Learn & Grow</a></li>
+      <li><a href="community-connection.html"><i class="fas fa-users"></i> Community & Connection</a></li>
+      <li><a href="parent-teacher-resources.html"><i class="fas fa-chalkboard-teacher"></i> Parent & Teacher Resources</a></li>
+      <li><a href="shop-resources.html"><i class="fas fa-shopping-bag"></i> Shop & Resources</a></li>
+      <li><a href="about us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="blog-articles.html"><i class="fas fa-newspaper"></i> Blog / Articles</a></li>
+      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="contact us.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      <li><a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+      <li><a href="chat-with-therapist.html"><i class="fas fa-comments"></i> Chat with a Therapist</a></li>
+      <li><a href="books.html"><i class="fas fa-book"></i> PDFs</a></li>
+    </ul>
+  </div>
+
+  <!-- Overlay Background -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="floating floating-1">
+      <i class="fas fa-heart" style="font-size: 100px; color: var(--primary-dark);"></i>
+    </div>
+    <div class="floating floating-2">
+      <i class="fas fa-star" style="font-size: 80px; color: var(--primary);"></i>
+    </div>
+    <div class="hero-content">
+      <h1>Welcome to GirlEmpower+</h1>
+      <p>Your safe space to learn, grow, and connect from understanding your menstrual cycle to navigating life with confidence.</p>
+      <div class="cta-buttons">
+        <a href="Menstrual Health.html"><i class="fas fa-compass"></i> Start Exploring</a>
+        <a href="chat-with-therapist.html"><i class="fas fa-comments"></i> Talk to a Therapist</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Overview Section -->
+  <section class="section">
+    <h2>Our Mission</h2>
+    <p>At GirlEmpower+, we are here to support girls through every stage of life from their first period to their biggest dreams. Our goal is to provide trusted, inclusive, and empowering resources that help girls understand their bodies, emotions, and potential.</p>
+  </section>
+
+  <!-- Highlights of Key Sections -->
+  <section class="section">
+    <h2>Explore Our Key Sections</h2>
+    <div class="features">
+      <div class="feature-card">
+        <i class="fas fa-female"></i>
+        <h3>Menstrual Health</h3>
+        <p>Learn about your cycle, track your period, and get answers to all your questions in a safe, judgment-free zone.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-brain"></i>
+        <h3>Mental Wellness</h3>
+        <p>From stress to self-love, find tools and tips to stay emotionally strong and balanced.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-hands-helping"></i>
+        <h3>Therapists & Support</h3>
+        <p>Connect with supportive professionals who specialize in helping girls like you.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-fire"></i>
+        <h3>Motivational Zone</h3>
+        <p>Get inspired by powerful stories, videos, and daily affirmations designed just for girls.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Content Section -->
+  <section class="featured-content">
+    <h2>Featured Content</h2>
+    <div class="cards">
+      <!-- Example Featured Article -->
+      <div class="card">
+        <div class="card-media">
+          <iframe src="https://www.youtube.com/embed/zcvo9VLVHWc"
+                  title="Understanding Your Menstrual Cycle"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
+        <div class="card-content">
+          <h3>Understanding Your Menstrual Cycle</h3>
+          <p>Watch our animated video explaining how your cycle works easy, clear, and girl-friendly.</p>
+          <a href="#" class="card-link">Watch Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Example Featured Video -->
+      <div class="card">
+        <div class="card-media">
+          <iframe src="https://www.youtube.com/embed/ztTexqGQ0VI"
+                  title="How to Calm Your Mind in 5 Minutes"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
+        <div class="card-content">
+          <h3>How to Calm Your Mind in 5 Minutes</h3>
+          <p>Try our guided breathing animation to feel centered and calm during stressful moments.</p>
+          <a href="#" class="card-link">Watch Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Example Featured Article -->
+      <div class="card">
+        <div class="card-media">
+          <iframe src="https://www.youtube.com/embed/M9nCp0N8FF8"
+                  title="Why You Are Already Amazing"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
+        <div class="card-content">
+          <h3>Why You are Already Amazing</h3>
+          <p>Watch this short but powerful article to remind yourself of your worth, no matter what.</p>
+          <a href="#" class="card-link">Watch Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <img src="logo.jpg" alt="GirlEmpower+ Logo" class="footer-logo">
+      <div class="footer-links">
+        <a href="about us.html">About Us</a>
+        <a href="contact us.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.pinterest.com" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+      <p class="copyright">© 2025 GirlEmpower+. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Toggle -->
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('overlay');
+
+    // Open/close menu
+    menuIcon.addEventListener('click', () => {
+      menuIcon.classList.toggle('active');
+      sideMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', () => {
+      menuIcon.classList.remove('active');
+      sideMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="b-dlHAf74m9dGhcSQpAE_";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+</body>
+</html>

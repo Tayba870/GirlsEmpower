@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Resilience in Teenage Girls | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 145px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .article-date {
+      font-size: 0.9rem;
+      color: #a85584;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .article-title {
+      font-size: 2.2rem;
+      color: #c2185b;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .article-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .article-content {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .article-content h2 {
+      color: #d63384;
+      margin: 30px 0 15px;
+      font-size: 1.8rem;
+    }
+
+    .article-content h3 {
+      color: #f06292;
+      margin: 25px 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .strategy-box {
+      background: #fff3f9;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 25px 0;
+      border-left: 4px solid #f06292;
+    }
+
+    .strategy-box h3 {
+      display: flex;
+      align-items: center;
+    }
+
+    .strategy-box h3 span {
+      background: #f06292;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 0.9rem;
+    }
+
+    .quote {
+      font-style: italic;
+      padding: 20px;
+      background: #fff3f9;
+      border-left: 4px solid #f06292;
+      margin: 30px 0;
+      font-size: 1.2rem;
+    }
+
+    .infographic {
+      width: 100%;
+      max-width: 600px;
+      margin: 30px auto;
+      display: block;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 40px 0;
+      border-radius: 8px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .related-articles {
+      margin: 60px 0;
+    }
+
+    .related-title {
+      font-size: 1.5rem;
+      color: #d63384;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .related-card {
+      background: #fff3f9;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .related-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .related-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .related-card-content {
+      padding: 20px;
+    }
+
+    .related-card h3 {
+      color: #c2185b;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .related-card a {
+      color: #f06292;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #fbcfe8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: #c2185b;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 1.8rem;
+      }
+      
+      .article-content {
+        padding: 25px;
+      }
+      
+      .article-image {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+</header>
+
+<div class="article-container">
+  <div class="article-header">
+    <div class="article-date">April 10, 2023</div>
+    <h1 class="article-title">Building Resilience in Teenage Girls</h1>
+    <p>Practical tools for parents and educators to help young women develop emotional resilience in challenging times</p>
+  </div>
+  
+  <img src="resilience.jpg" alt="Teenage girls supporting each other" class="article-image">
+  
+  <div class="article-content">
+    <p>Resilience—the ability to bounce back from adversity—isn't an innate trait but a set of skills that can be developed. For teenage girls navigating academic pressures, social challenges, and physical changes, resilience building is especially crucial. This article provides evidence-based strategies to foster resilience in young women.</p>
+    
+    <h2>Why Resilience Matters</h2>
+    
+    <p>Research shows that resilient teens are more likely to:</p>
+    <ul>
+      <li>Maintain mental well-being during stressful periods</li>
+      <li>Develop healthy coping mechanisms</li>
+      <li>Achieve academic and personal goals</li>
+      <li>Form positive relationships</li>
+      <li>Navigate transitions successfully</li>
+    </ul>
+    
+    <div class="quote">
+      "Resilience isn't about avoiding storms but learning to dance in the rain. Our role as adults isn't to clear the path for young women but to equip them with sturdy boots for the journey." - Dr. Elena Martinez, Adolescent Psychologist
+    </div>
+    
+    <h2>5 Key Strategies for Building Resilience</h2>
+    
+    <div class="strategy-box">
+      <h3><span>1</span> Foster Growth Mindset</h3>
+      <p>Teach that abilities can be developed through effort. Instead of praising innate talent ("You're so smart"), acknowledge process ("I admire how you worked through that problem").</p>
+      <p><strong>Activity:</strong> Encourage reflection on past challenges they've overcome to reinforce that struggle leads to growth.</p>
+    </div>
+    
+    <div class="strategy-box">
+      <h3><span>2</span> Develop Emotional Literacy</h3>
+      <p>Help girls identify and articulate their emotions. Use emotion charts or mood meters to expand their emotional vocabulary beyond "good" and "bad."</p>
+      <p><strong>Activity:</strong> Practice "feeling forecasts" - predicting how situations might make them feel and planning healthy responses.</p>
+    </div>
+    
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/7at4KySql84" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    <div class="strategy-box">
+      <h3><span>3</span> Encourage Problem-Solving</h3>
+      <p>Rather than immediately offering solutions, guide girls through the problem-solving process with questions like "What options do you see?" and "How might each choice play out?"</p>
+      <p><strong>Activity:</strong> Use case studies or hypothetical scenarios to practice breaking problems into manageable parts.</p>
+    </div>
+    
+    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Resilience infographic" class="infographic">
+    
+    <div class="strategy-box">
+      <h3><span>4</span> Build Support Networks</h3>
+      <p>Help girls identify multiple sources of support—peers, family members, teachers, mentors—and practice reaching out.</p>
+      <p><strong>Activity:</strong> Create a "support map" visualizing their network and how different people can help with different needs.</p>
+    </div>
+    
+    <div class="strategy-box">
+      <h3><span>5</span> Normalize Failure</h3>
+      <p>Share stories of successful women's setbacks and how they recovered. Emphasize that mistakes are data, not identity.</p>
+      <p><strong>Activity:</strong> "Failure resumes" where girls list setbacks and what they learned from each.</p>
+    </div>
+    
+    <h2>Implementing Resilience Building</h2>
+    
+    <p>These strategies work best when integrated into daily life rather than treated as one-off lessons. Consistency and modeling from adults are key. Remember that resilience looks different for each girl—the goal isn't to eliminate distress but to provide tools to navigate it.</p>
+    
+    <p>For educators: Consider incorporating resilience-building into existing curricula through reflective writing prompts, group discussions, and project-based learning that encourages iteration.</p>
+    
+    <p>For parents: Create regular check-ins focused on problem-solving rather than fixing, and model resilient behaviors in your own life.</p>
+  </div>
+  
+  <div class="related-articles">
+    <h3 class="related-title">You Might Also Like</h3>
+    <div class="related-grid">
+      <div class="related-card">
+        <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mental health">
+        <div class="related-card-content">
+          <h3>Breaking the Silence: Mental Health in Young Women</h3>
+          <a href=" Younf female mental.html">Read More →</a>
+        </div>
+      </div>
+      <div class="related-card">
+        <img src="self care.jpg" alt="Self care">
+        <div class="related-card-content">
+          <h3>5 Self-Care Practices That Actually Work</h3>
+          <a href="self care or.html">Read More →</a>
+        </div>
+      </div>
+      <div class="related-card">
+        <img src="https://images.unsplash.com/photo-1498753427761-548428edfa67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Communication">
+        <div class="related-card-content">
+          <h3>Effective Communication for Teen Girls</h3>
+          <a href="communication-skills.html">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Follow Us for More Articles</p>
+  <div class="social-icons">
+    <a href="#">📱</a>
+    <a href="#">📘</a>
+    <a href="#">📸</a>
+    <a href="#">🐦</a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">© 2025 GirlEmpower+. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

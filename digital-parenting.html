@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Parenting | GirlEmpower+</title>
+  <!-- Same header and styles as above, changing colors -->
+  <style>
+    /* Same as above, but change --primary to #42C2FF */
+    :root {
+      --primary: #42C2FF;
+      --secondary: #FF6584;
+      --accent: #6C63FF;
+      --dark: #2D3748;
+      --light: #F7FAFC;
+    }
+   }
+    
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+      background-color: var(--light);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    
+    .article-header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .article-header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+    }
+    
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem 3rem;
+    }
+    
+    .article-content {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-top: -3rem;
+      position: relative;
+    }
+    
+    .article-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    
+    .article-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .article-content h2 {
+      font-family: 'Merriweather', serif;
+      color: var(--primary);
+      margin: 2rem 0 1rem;
+    }
+    
+    .download-section {
+      background: #f0f7ff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    
+    .download-btn {
+      background: var(--primary);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .download-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #fbcfe8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+    
+    @media (max-width: 768px) {
+      .article-header h1 {
+        font-size: 2rem;
+      }
+      
+      .article-image {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="GirlEmpower+ Logo"> GirlEmpower+
+  </div>
+</header>
+
+<div class="article-header">
+  <h1>The Digital Parenting Handbook</h1>
+  <div class="article-meta">
+    <span>April 22, 2023</span>
+    <span></span>
+    <span>10 min read</span>
+  </div>
+</div>
+
+<div class="article-container">
+  <div class="article-content">
+    <img src="digital-parenting.jpg" alt="Parent and child using devices" class="article-image">
+    
+    <p>In today's digital world, parenting requires new strategies to keep teens safe online while respecting their growing independence. This guide covers essential approaches to digital parenting.</p>
+    
+    <h2>1. Start With Education, Not Fear</h2>
+    <p>Instead of just listing dangers, teach your teen how to evaluate online content critically. Discuss concepts like digital footprints, privacy settings, and recognizing misinformation.</p>
+    
+    <div class="download-section">
+      <h3>Download the Complete Handbook</h3>
+      <p>Get our comprehensive 25-page guide with worksheets and conversation starters</p>
+      <a href="digital-parenting-handbook.pdf" download="GirlEmpower-Digital-Parenting-Handbook.pdf" class="download-btn">
+        <i class="fas fa-file-pdf"></i> Download PDF Handbook
+      </a>
+    </div>
+    
+    <h2>2. Create a Family Media Agreement</h2>
+    <p>A collaborative agreement about device usage times, appropriate content, and online behavior works better than imposed rules. Include both parent and teen commitments.</p>
+    
+    <p><em>Continue reading in the downloadable handbook...</em></p>
+  </div>
+</div>
+
+<footer>
+  <p>Follow Us for Updates</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+
+</body>
+</html>

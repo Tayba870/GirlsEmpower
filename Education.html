@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Resources | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+    
+    header {
+      background: linear-gradient(120deg, #7b1fa2, #4a148c);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 20px;
+    }
+    
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    
+    nav ul li a:hover {
+      opacity: 0.8;
+    }
+    
+    .category-header {
+      background: linear-gradient(120deg, #a18cd1, #fbc2eb);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .category-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .category-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .category-header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .resources-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .subject-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 40px 0;
+    }
+    
+    .subject-tab {
+      background: white;
+      padding: 15px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      color: #7b1fa2;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .subject-tab:hover, .subject-tab.active {
+      background: #7b1fa2;
+      color: white;
+    }
+    
+    .resource-section {
+      margin: 4rem 0;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      color: #7b1fa2;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-title i {
+      margin-right: 10px;
+      font-style: normal;
+    }
+    
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .article-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .article-content {
+      padding: 20px;
+    }
+    
+    .article-date {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .article-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #4a148c;
+    }
+    
+    .article-excerpt {
+      color: #666;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+    
+    .read-more {
+      color: #7b1fa2;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .read-more:hover {
+      text-decoration: underline;
+    }
+    
+    .career-spotlight {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      margin: 40px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      align-items: center;
+    }
+    
+    .career-image {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .career-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .career-content h2 {
+      color: #7b1fa2;
+      margin-bottom: 15px;
+    }
+    
+    .career-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .career-stat {
+      background: #f3e5f5;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    
+    .stat-title {
+      font-size: 0.8rem;
+      color: #7b1fa2;
+      margin-bottom: 5px;
+    }
+    
+    .stat-value {
+      font-weight: 700;
+      color: #4a148c;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: #7b1fa2;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #4a148c;
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: linear-gradient(120deg, #7b1fa2, #4a148c);
+      color: white;
+      margin-top: 3rem;
+    }
+    
+    footer p {
+      margin-bottom: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      nav ul {
+        margin-top: 1rem;
+      }
+      
+      .category-header {
+        padding: 3rem 1rem;
+      }
+      
+      .category-header h1 {
+        font-size: 2rem;
+      }
+      
+      .career-spotlight {
+        grid-template-columns: 1fr;
+      }
+      
+      .career-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="GirlEmpower+ Logo" /> GirlEmpower+
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="mental-health.html">Mental Health</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="community.html">Community</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="category-header">
+  <div class="category-icon">🎓</div>
+  <h1>Education Resources</h1>
+  <p>Academic support, career guidance, and learning strategies for young women</p>
+</div>
+
+<div class="resources-container">
+  <div class="subject-tabs">
+    <div class="subject-tab active">All Subjects</div>
+    <div class="subject-tab">STEM</div>
+    <div class="subject-tab">Humanities</div>
+    <div class="subject-tab">Arts</div>
+    <div class="subject-tab">Languages</div>
+    <div class="subject-tab">Life Skills</div>
+  </div>
+
+  <div class="career-spotlight">
+    <div class="career-image">
+      <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data scientist">
+    </div>
+    <div class="career-content">
+      <h2>Career Spotlight: Data Scientist</h2>
+      <p>This week we highlight one of the fastest-growing careers for women in technology. Data scientists use analytical skills to extract insights from complex data.</p>
+      
+      <div class="career-stats">
+        <div class="career-stat">
+          <div class="stat-title">Median Salary</div>
+          <div class="stat-value">$98,230</div>
+        </div>
+        <div class="career-stat">
+          <div class="stat-title">Growth Outlook</div>
+          <div class="stat-value">+31% by 2030</div>
+        </div>
+        <div class="career-stat">
+          <div class="stat-title">Women in Field</div>
+          <div class="stat-value">32% and rising</div>
+        </div>
+        <div class="career-stat">
+          <div class="stat-title">Entry Education</div>
+          <div class="stat-value">Bachelor's +</div>
+        </div>
+      </div>
+      
+      <a href="data-scientist-explore.html" class="btn">Explore This Career</a>
+    </div>
+  </div>
+
+  <div class="resource-section">
+    <h2 class="section-title"><i>📚</i> Study Resources</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Study techniques">
+        <div class="article-content">
+          <div class="article-date">May 10, 2023</div>
+          <h3>Science-Backed Study Techniques</h3>
+          <p class="article-excerpt">Evidence-based methods to improve retention and reduce study time...</p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="STEM women">
+        <div class="article-content">
+          <div class="article-date">April 25, 2023</div>
+          <h3>Women in STEM: Study & Career Paths</h3>
+          <p class="article-excerpt">Spotlight on successful women and how they navigated their education...</p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Test anxiety">
+        <div class="article-content">
+          <div class="article-date">April 12, 2023</div>
+          <h3>Overcoming Test Anxiety</h3>
+          <p class="article-excerpt">Practical strategies to perform your best when it matters most...</p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-section">
+    <h2 class="section-title"><i>🎓</i> Scholarship Opportunities</h2>
+    <div class="articles-grid">
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="STEM scholarship">
+        <div class="article-content">
+          <h3>Women in Technology Scholarships</h3>
+          <p class="article-excerpt">15+ opportunities for girls pursuing computer science and engineering...</p>
+          <a href="women-in-tech-scholarships.html" class="read-more">View List →</a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Writing contest">
+        <div class="article-content">
+          <h3>Creative Writing Contests</h3>
+          <p class="article-excerpt">Annual competitions with cash prizes and publication opportunities...</p>
+          <a href="#" class="read-more">View List →</a>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community service">
+        <div class="article-content">
+          <h3>Community Service Awards</h3>
+          <p class="article-excerpt">Scholarships recognizing leadership and volunteer work...</p>
+          <a href="#" class="read-more">View List →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Bookmark this page - we update scholarships weekly!</p>
+  <p style="font-size: 0.9rem; margin-top: 10px;">© 2025 GirlEmpower+. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

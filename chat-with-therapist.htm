@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat with a Therapist | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: none; /* Hidden on mobile by default */
+    }
+
+    .desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .desktop-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .desktop-nav a:hover,
+    .desktop-nav a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hamburger Icon (Mobile Only) */
+    .menu-toggle {
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: block; /* Visible on mobile */
+    }
+
+    .menu-toggle:hover {
+      transform: rotate(90deg);
+    }
+
+    /* Side Menu (Mobile) */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: #fce4ec;
+      padding-top: 20px;
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      z-index: 999;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .side-menu.active {
+      left: 0;
+    }
+
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .side-menu li {
+      margin: 10px 0;
+    }
+
+    .side-menu a {
+      color: #d63384;
+      text-decoration: none;
+      display: block;
+      padding: 12px 25px;
+      transition: background 0.3s ease;
+    }
+
+    .side-menu a:hover,
+    .side-menu a.active {
+      background-color: #fbcfe8;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 998;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffe0f0, #f8bbd0);
+      color: #880e4f;
+      padding: 100px 20px 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #d63384;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .person-grid {
+      display: grid;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .person-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .person-card {
+      background: #fff3f9;
+      border-left: 5px solid #f06292;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .person-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .person-name {
+      font-size: 1.1rem;
+      color: #c2185b;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .person-role {
+      font-size: 0.9rem;
+      color: #a85584;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .person-details {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .person-details p {
+      margin-bottom: 8px;
+    }
+
+    .person-contact a {
+      display: block;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+
+    .person-contact a:hover {
+      color: #f06292;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta a {
+      background-color: #f06292;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta a:hover {
+      background-color: #d63384;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #fbcfe8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: #c2185b;
+      text-decoration: none;
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none; /* Hide hamburger on desktop */
+      }
+
+      .desktop-nav {
+        display: block; /* Show desktop nav */
+      }
+
+      .side-menu {
+        display: none; /* Hide side menu on desktop */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="GirlEmpower+ Logo"> GirlEmpower+
+  </div>
+
+  <!-- Desktop Navigation (Visible on larger screens) -->
+  <nav class="desktop-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Menstrual Health.html">Menstrual Health</a></li>
+      <li><a href="therapists support.html" class="active">Therapists & Support</a></li>
+      <li><a href="motivational zone.html">Motivational Zone</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hamburger Menu (Mobile Only) -->
+  <div class="menu-toggle" onclick="toggleMenu()">?</div>
+</header>
+
+<!-- Overlay (Mobile) -->
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- Side Menu (Mobile) -->
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Menstrual Health.html">Menstrual Health</a></li>
+    <li><a href="therapists support.html">Therapists & Support</a></li>
+    <li><a href="motivational zone.html">Motivational Zone</a></li>
+    <li><a href="learn-grow.html">Learn & Grow</a></li>
+    <li><a href="community-connection.html">Community & Connection</a></li>
+    <li><a href="parent-teacher-resources.html">Parent & Teacher Resources</a></li>
+    <li><a href="shop-resources.html">Shop & Resources</a></li>
+    <li><a href="about us.html">About Us</a></li>
+    <li><a href="blog-articles.html">Blog / Articles</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact us.html">Contact Us</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="chat-with-therapist.html">Chat with a Therapist</a></li>
+    <li><a href="books.html">PDFs</a></li>
+  </ul>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Chat with a Therapist</h1>
+  <p>Connect with licensed mental health professionals in Ethiopia for confidential support and guidance.</p>
+</div>
+
+<!-- Therapists Section -->
+<div class="content">
+  <h2 class="section-title">Licensed Mental Health Professionals</h2>
+  <div class="person-grid">
+    <!-- Therapist 1 -->
+    <div class="person-card">
+      <div class="person-name">Dr. Alemayehu Molla</div>
+      <div class="person-role">Clinical Psychologist</div>
+      <div class="person-details">
+        <p>Workplace: Amanuel Mental Specialized Hospital, Addis Ababa</p>
+        <p>One of the leading female clinical psychologists in Ethiopia; involved in training and public mental health initiatives.</p>
+      </div>
+      <div class="person-contact">
+        <a href="tel:+251911123456">+251 911 123 456</a>
+        <a href="mailto:alemayehu.molla@amanuelhospital.org">alemayehu.molla@amanuelhospital.org</a>
+      </div>
+    </div>
+
+    <!-- Therapist 2 -->
+    <div class="person-card">
+      <div class="person-name">Dr. Netsanet Fekadu</div>
+      <div class="person-role">Psychiatrist</div>
+      <div class="person-details">
+        <p>Workplace: Tikur Anbessa Specialized Hospital Psychiatry Department, Addis Ababa University</p>
+        <p>Specialty: Adult psychiatry, trauma, depression, and anxiety disorders.</p>
+      </div>
+      <div class="person-contact">
+        <a href="tel:+251911234567">+251 911 234 567</a>
+        <a href="mailto:netsanet.fekadu@aau.edu.et">netsanet.fekadu@aau.edu.et</a>
+      </div>
+    </div>
+
+    <!-- Therapist 3 -->
+    <div class="person-card">
+      <div class="person-name">Ms. Yeshi Choesang</div>
+      <div class="person-role">Counseling Psychologist</div>
+      <div class="person-details">
+        <p>Workplace: Center for Advancement of Rights & Democracy (CARD), Addis Ababa</p>
+        <p>Focus: Trauma counseling, human rights, and refugee mental health.</p>
+      </div>
+      <div class="person-contact">
+        <a href="tel:+251911345678">+251 911 345 678</a>
+        <a href="mailto:yeshi.choesang@cardeth.org">yeshi.choesang@cardeth.org</a>
+      </div>
+    </div>
+
+    <!-- Therapist 4 -->
+    <div class="person-card">
+      <div class="person-name">Dr. Zebib Yenus</div>
+      <div class="person-role">Child and Adolescent Psychologist</div>
+      <div class="person-details">
+        <p>Workplace: Ministry of Health and various NGOs focusing on youth mental health</p>
+        <p>Experience: Works with international organizations like UNICEF and WHO on child development projects.</p>
+      </div>
+      <div class="person-contact">
+        <a href="tel:+251911456789">+251 911 456 789</a>
+        <a href="mailto:zebib.yenus@moh.gov.et">zebib.yenus@moh.gov.et</a>
+      </div>
+    </div>
+
+    <!-- Therapist 5 -->
+    <div class="person-card">
+      <div class="person-name">Ms. Meaza Yohannes</div>
+      <div class="person-role">Marriage and Family Therapist</div>
+      <div class="person-details">
+        <p>Workplace: Private Practice and Ethiopian Psychological Association</p>
+        <p>Services: Offers therapy in Amharic and English for couples and families.</p>
+      </div>
+      <div class="person-contact">
+        <a href="tel:+251911567890">+251 911 567 890</a>
+        <a href="mailto:meaza.yohannes@epa.org.et">meaza.yohannes@epa.org.et</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a href="community-connection.html">Join Our Community for Peer Support</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Follow Us for Updates</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+
+<script>
+  function toggleMenu() {
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('overlay');
+    sideMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+  }
+
+  // Close menu when clicking outside (mobile)
+  window.addEventListener('click', function(e) {
+    const nav = document.getElementById('sideMenu');
+    const overlay = document.getElementById('overlay');
+    if (!document.querySelector('header').contains(e.target)) {
+      if (!nav.contains(e.target)) {
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

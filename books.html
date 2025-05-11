@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empowerment Resources | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff6b6b;
+      --secondary: #ff8e8e;
+      --light: #fff5f5;
+      --dark: #c62828;
+      --accent: #ffd166;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff9f9;
+      color: #333;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 15px;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, #ffc3a0, #ffafbd);
+      padding: 100px 20px;
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="white" opacity="0.1" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+      background-size: cover;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+    
+    .resource-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+    
+    .resource-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+    
+    .resource-icon {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 2rem;
+      opacity: 0.2;
+    }
+    
+    .resource-body {
+      padding: 25px;
+    }
+    
+    .resource-title {
+      font-size: 1.5rem;
+      margin: 0 0 10px 0;
+      color: var(--dark);
+    }
+    
+    .resource-description {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .download-btn:hover {
+      background: var(--dark);
+    }
+    
+    .download-btn i {
+      margin-left: 8px;
+    }
+    
+    .category-tag {
+      display: inline-block;
+      background: var(--light);
+      color: var(--dark);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+    
+    footer {
+      background: var(--light);
+      padding: 50px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+    
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .footer-quote {
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 30px;
+    }
+    
+    .social-links a {
+      color: var(--dark);
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--primary);
+    }
+    
+    @media (max-width: 768px) {
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="GirlEmpower+ Logo"> GirlEmpower+
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Empowerment Resources</h1>
+  <p>Download our carefully curated collection of guides, worksheets, and tools to support mental health, personal growth, and empowerment</p>
+</section>
+
+<div class="container">
+  <div class="resources-grid">
+    <!-- Resource Card 1 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">8to11 Life Guide</h3>
+        <i class="resource-icon fas fa-child"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Essential life skills and guidance for young girls aged 8 to 11, helping them navigate friendships, school, and self-discovery.</p>
+        <span class="category-tag">Pre-teen</span>
+        <span class="category-tag">Development</span>
+        <a href="8to11.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 2 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">10 Common Mistakes</h3>
+        <i class="resource-icon fas fa-exclamation-triangle"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Learn about 10 common mistakes young women make in relationships, careers, and personal growth, and how to avoid them.</p>
+        <span class="category-tag">Self-improvement</span>
+        <span class="category-tag">Advice</span>
+        <a href="10mistakes.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 3 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">15to18 Transition Guide</h3>
+        <i class="resource-icon fas fa-graduation-cap"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">A comprehensive guide to navigating the challenging years from 15 to 18, covering education, relationships, and future planning.</p>
+        <span class="category-tag">Teen</span>
+        <span class="category-tag">Transition</span>
+        <a href="15to18.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 4 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Mental Health First Aider</h3>
+        <i class="resource-icon fas fa-hands-helping"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Your complete guide to being a mental health first aider - learn how to support others in crisis and promote wellbeing.</p>
+        <span class="category-tag">Mental Health</span>
+        <span class="category-tag">Support</span>
+        <a href="Being-a-Mental-Health-First-Aider-Your-guide-to-the-role.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 5 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Conversation Starters</h3>
+        <i class="resource-icon fas fa-comments"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Powerful questions and prompts to facilitate meaningful conversations about mental health, goals, and personal challenges.</p>
+        <span class="category-tag">Communication</span>
+        <span class="category-tag">Connection</span>
+        <a href="conversation-starters.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 6 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Coping Toolkit</h3>
+        <i class="resource-icon fas fa-tools"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Practical strategies and exercises to help manage stress, anxiety, and difficult emotions in healthy ways.</p>
+        <span class="category-tag">Mental Health</span>
+        <span class="category-tag">Wellbeing</span>
+        <a href="coping-toolkit.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 7 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Digital Parenting Handbook</h3>
+        <i class="resource-icon fas fa-laptop"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">A modern guide to raising children in the digital age, with tips on screen time, online safety, and digital literacy.</p>
+        <span class="category-tag">Parenting</span>
+        <span class="category-tag">Technology</span>
+        <a href="digital-parenting-handbook.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 8 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Emotional Regulation Poster</h3>
+        <i class="resource-icon fas fa-heart"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Visual guide to understanding and managing emotions, perfect for classrooms or bedrooms.</p>
+        <span class="category-tag">Emotional Health</span>
+        <span class="category-tag">Visual Aid</span>
+        <a href="Emotional Regulation Poster.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 9 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Parent's Guide to Empowerment</h3>
+        <i class="resource-icon fas fa-users"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">How to raise confident, empowered daughters in today's world - strategies for parents and caregivers.</p>
+        <span class="category-tag">Parenting</span>
+        <span class="category-tag">Empowerment</span>
+        <a href="GirlEmpower-Digital-Parenting-Handbook.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 10 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Parent's Support Guide</h3>
+        <i class="resource-icon fas fa-hands"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Comprehensive resource for parents supporting their children's mental health and emotional wellbeing.</p>
+        <span class="category-tag">Parenting</span>
+        <span class="category-tag">Support</span>
+        <a href="guide_for_parents.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 11 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">I-Statements Guide</h3>
+        <i class="resource-icon fas fa-comment-dots"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Learn the powerful communication technique of using "I" statements to express feelings without blame.</p>
+        <span class="category-tag">Communication</span>
+        <span class="category-tag">Relationships</span>
+        <a href="i-statements-guide.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 12 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Mindfulness Activities</h3>
+        <i class="resource-icon fas fa-spa"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Simple, effective mindfulness exercises for stress reduction, focus, and emotional balance.</p>
+        <span class="category-tag">Mindfulness</span>
+        <span class="category-tag">Wellbeing</span>
+        <a href="mindfulness_activities.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 13 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Mood Journal</h3>
+        <i class="resource-icon fas fa-book-open"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Track your emotions, identify patterns, and gain insight into your mental health with this printable journal.</p>
+        <span class="category-tag">Self-reflection</span>
+        <span class="category-tag">Mental Health</span>
+        <a href="mood-journal.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 14 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Period Tracker</h3>
+        <i class="resource-icon fas fa-calendar-alt"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Printable tracker to monitor menstrual cycles, symptoms, and overall reproductive health.</p>
+        <span class="category-tag">Health</span>
+        <span class="category-tag">Tracking</span>
+        <a href="period tracker.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    
+    <!-- Resource Card 15 -->
+    <div class="resource-card">
+      <div class="resource-header">
+        <h3 class="resource-title">Self-Care Worksheet</h3>
+        <i class="resource-icon fas fa-heartbeat"></i>
+      </div>
+      <div class="resource-body">
+        <p class="resource-description">Plan and prioritize your self-care routine with this interactive worksheet and guide.</p>
+        <span class="category-tag">Self-care</span>
+        <span class="category-tag">Wellbeing</span>
+        <a href="self-care-worksheet.pdf" class="download-btn">Download <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <p class="footer-quote">"Empowered women empower women. Share these resources with someone who needs them."</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-pinterest"></i></a>
+    </div>
+    <p>© 2025 GirlEmpower+. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

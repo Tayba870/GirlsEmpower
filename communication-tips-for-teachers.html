@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Communication Tips for Teachers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Poppins', sans-serif;
+      padding-top: 80px;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    /* Header and Navigation */
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 75px;
+      margin-right: 10px;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger-line {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: #fce4ec;
+      padding: 80px 20px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+    }
+
+    .mobile-menu li {
+      margin-bottom: 15px;
+    }
+
+    .mobile-menu a {
+      color: #d63384;
+      text-decoration: none;
+      display: block;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      background-color: #fbcfe8;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* Desktop Menu */
+    .desktop-menu {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .hamburger {
+        display: none;
+      }
+      
+      .mobile-menu {
+        display: none;
+      }
+      
+      .desktop-menu {
+        display: block;
+      }
+      
+      .desktop-menu ul {
+        display: flex;
+        gap: 15px;
+        list-style: none;
+      }
+      
+      .desktop-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .desktop-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    /* Content Styles */
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 { 
+      color: #2ecc71;
+      margin-bottom: 20px;
+    }
+
+    .section { 
+      margin-bottom: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    ul { 
+      line-height: 1.6;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    iframe { 
+      width: 100%; 
+      max-width: 560px; 
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    strong {
+      color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+  
+  <!-- Hamburger Menu Button -->
+  <div class="hamburger" id="hamburger">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </div>
+  
+  <!-- Desktop Menu -->
+  <nav class="desktop-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Menstrual Health.html">Menstrual Health</a></li>
+      <li><a href="therapists support.html">Therapists & Support</a></li>
+      <li><a href="motivational zone.html">Motivational Zone</a></li>
+      <li><a href="parent-teacher-resources.html">Parent/Teacher Resources</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Main Content -->
+<div class="container">
+  <h1>Communication Tips for Teachers</h1>
+  <p>Effective communication between teachers, parents, and students is essential for creating a supportive learning environment. Here are some strategies to improve your communication skills.</p>
+
+  <div class="section">
+    <h2>Top Communication Strategies</h2>
+    <ul>
+      <li><strong>Be Clear and Concise:</strong> Avoid jargon when speaking with parents or young students.</li>
+      <li><strong>Use Positive Language:</strong> Focus on strengths before discussing concerns (e.g., "I've noticed she's very creative...").</li>
+      <li><strong>Practice Active Listening:</strong> Let parents and students finish speaking before responding.</li>
+      <li><strong>Offer Regular Updates:</strong> Use emails, newsletters, or apps to keep families informed.</li>
+      <li><strong>Choose the Right Medium:</strong> Sensitive topics should be discussed in person or via video call rather than email.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Parent-Teacher Communication Tools</h2>
+    <ul>
+      <li>ClassDojo</li>
+      <li>Remind App</li>
+      <li>Email newsletters (via Mailchimp or Google Groups)</li>
+      <li>School portals or LMS platforms (like Google Classroom or Seesaw)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Video: Communicating with Parents Effectively</h2>
+    <iframe src="https://www.youtube.com/embed/LTKOhxE4LNc" allowfullscreen></iframe>
+  </div>
+
+  <div class="section">
+    <h2>Pro Tip</h2>
+    <p>Always follow up after difficult conversations with a brief summary of what was discussed and agreed upon. This ensures clarity and accountability.</p>
+  </div>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+  
+  function toggleMenu() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    // Toggle body scroll when menu is open
+    if (mobileMenu.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+  
+  hamburger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+  
+  // Close menu when clicking on a link
+  const menuLinks = document.querySelectorAll('.mobile-menu a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+  });
+</script>
+
+</body>
+</html>

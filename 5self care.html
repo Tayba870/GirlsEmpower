@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Self-Care Practices That Actually Work | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 145px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .article-date {
+      font-size: 0.9rem;
+      color: #a85584;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .article-title {
+      font-size: 2.2rem;
+      color: #c2185b;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .article-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .article-content {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .article-content h2 {
+      color: #d63384;
+      margin: 30px 0 15px;
+      font-size: 1.8rem;
+    }
+
+    .practice-card {
+      background: #fff3f9;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 25px 0;
+      border-left: 4px solid #f06292;
+    }
+
+    .practice-card h3 {
+      color: #f06292;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .practice-card h3 span {
+      margin-right: 10px;
+      font-size: 1.8rem;
+    }
+
+    .benefits-list {
+      background: #fce4ec;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .benefits-list h4 {
+      color: #c2185b;
+      margin-bottom: 10px;
+    }
+
+    .benefits-list ul {
+      margin-left: 20px;
+    }
+
+    .benefits-list li {
+      margin-bottom: 8px;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 40px 0;
+      border-radius: 8px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .related-articles {
+      margin: 60px 0;
+    }
+
+    .related-title {
+      font-size: 1.5rem;
+      color: #d63384;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .related-card {
+      background: #fff3f9;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .related-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .related-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .related-card-content {
+      padding: 20px;
+    }
+
+    .related-card h3 {
+      color: #c2185b;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .related-card a {
+      color: #f06292;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #fbcfe8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: #c2185b;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 1.8rem;
+      }
+      
+      .article-content {
+        padding: 25px;
+      }
+      
+      .article-image {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+</header>
+
+<div class="article-container">
+  <div class="article-header">
+    <div class="article-date">April 28, 2023</div>
+    <h1 class="article-title">5 Self-Care Practices That Actually Work</h1>
+    <p>Move beyond bubble baths - discover evidence-based self-care strategies that truly support mental wellness</p>
+  </div>
+  
+  <img src="self care.jpg" class="article-image">
+  
+  <div class="article-content">
+    <p>In a world that glorifies busyness, self-care has become more crucial than ever—yet many popular self-care recommendations fall short of providing real, lasting benefits. This article explores five evidence-based practices that genuinely support mental and emotional well-being.</p>
+    
+    <div class="practice-card">
+      <h3><span>1</span> Mindful Movement</h3>
+      <p>Rather than intense workouts that feel like punishment, mindful movement focuses on connecting with your body through gentle exercise like yoga, tai chi, or even mindful walking.</p>
+      
+      <div class="benefits-list">
+        <h4>Why It Works:</h4>
+        <ul>
+          <li>Reduces cortisol (stress hormone) levels</li>
+          <li>Increases body awareness and appreciation</li>
+          <li>Boosts endorphins without exhaustion</li>
+        </ul>
+      </div>
+      
+      <p><strong>Try this:</strong> Start with just 10 minutes of yoga each morning, focusing on your breath and how each movement feels in your body.</p>
+    </div>
+    
+    <div class="practice-card">
+      <h3><span>2</span> Digital Boundaries</h3>
+      <p>Setting intentional limits on technology use is one of the most impactful forms of modern self-care.</p>
+      
+      <div class="benefits-list">
+        <h4>Why It Works:</h4>
+        <ul>
+          <li>Reduces comparison and information overload</li>
+          <li>Improves sleep quality</li>
+          <li>Creates space for real-world connections</li>
+        </ul>
+      </div>
+      
+      <p><strong>Try this:</strong> Implement a "no screens" rule for the first and last hour of your day, using that time for reflection, reading, or gentle movement.</p>
+    </div>
+    
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/2V8BZ2uT7tc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    <div class="practice-card">
+      <h3><span>3</span> Creative Expression</h3>
+      <p>Engaging in creative activities without pressure to perform or produce can be profoundly therapeutic.</p>
+      
+      <div class="benefits-list">
+        <h4>Why It Works:</h4>
+        <ul>
+          <li>Activates different brain regions than verbal processing</li>
+          <li>Provides an outlet for complex emotions</li>
+          <li>Fosters a sense of accomplishment</li>
+        </ul>
+      </div>
+      
+      <p><strong>Try this:</strong> Keep an art journal where you doodle, collage, or paint your feelings without worrying about the end result.</p>
+    </div>
+    
+    <div class="practice-card">
+      <h3><span>4</span> Nature Connection</h3>
+      <p>Spending time in natural environments has measurable benefits for mental health.</p>
+      
+      <div class="benefits-list">
+        <h4>Why It Works:</h4>
+        <ul>
+          <li>Lowers blood pressure and stress hormones</li>
+          <li>Restores cognitive function</li>
+          <li>Encourages mindfulness</li>
+        </ul>
+      </div>
+      
+      <p><strong>Try this:</strong> Practice "forest bathing" - spend 20 minutes in a park or green space simply observing nature with all your senses.</p>
+    </div>
+    
+    <div class="practice-card">
+      <h3><span>5</span> Compassionate Self-Talk</h3>
+      <p>How we speak to ourselves internally significantly impacts our emotional well-being.</p>
+      
+      <div class="benefits-list">
+        <h4>Why It Works:</h4>
+        <ul>
+          <li>Reduces anxiety and depression symptoms</li>
+          <li>Builds emotional resilience</li>
+          <li>Creates neural pathways for self-acceptance</li>
+        </ul>
+      </div>
+      
+      <p><strong>Try this:</strong> When you notice self-criticism, ask "Would I speak this way to my best friend?" and reframe the thought with kindness.</p>
+    </div>
+    
+    <h2>Creating Your Self-Care Plan</h2>
+    <p>Remember that effective self-care is personal. Experiment with these practices to discover what works best for you, and don't be afraid to adapt them to fit your lifestyle and needs. The most important aspect is consistency—even small, regular practices can create significant shifts in your well-being over time.</p>
+  </div>
+  
+  <div class="related-articles">
+    <h3 class="related-title">You Might Also Like</h3>
+    <div class="related-grid">
+      <div class="related-card">
+        <img src="silence.jpg" alt="Mental health">
+        <div class="related-card-content">
+          <h3>Breaking the Silence: Mental Health in Young Women</h3>
+          <a href="Young female mental health.html">Read More →</a>
+        </div>
+      </div>
+      <div class="related-card">
+        <img src="resilience.jpg" alt="Resilience">
+        <div class="related-card-content">
+          <h3>Building Resilience in Teenage Girls</h3>
+          <a href="building resilience.html">Read More →</a>
+        </div>
+      </div>
+      <div class="related-card">
+        <img src="sleep.jpg" alt="Sleep">
+        <div class="related-card-content">
+          <h3>The Science of Sleep for Teen Girls</h3>
+          <a href="sleep-science.html">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Follow Us for More Articles</p>
+  <div class="social-icons">
+    <a href="#">📱</a>
+    <a href="#">📘</a>
+    <a href="#">📸</a>
+    <a href="#">🐦</a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">© 2025 GirlEmpower+. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

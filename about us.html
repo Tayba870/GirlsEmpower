@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | GirlEmpower+</title>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css ">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Top Navigation Bar */
+    .navbar {
+      background-color: #e9bcb7;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Contact & Social Icons Section */
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .nav-icons a {
+      color: #5d2e2f;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .nav-icons a:hover {
+      color: #d67b76;
+    }
+
+    /* Video Logo Container */
+    .video-logo {
+      width: 140px;
+      height: auto;
+    }
+    .video-logo video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+    .logo-name {
+      color: #5d2e2f;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    /* Hamburger Icon */
+    .menu-toggle {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #5d2e2f;
+    }
+
+    /* Slide-out Side Menu */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #f4dde0;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+    .side-menu.active {
+      left: 0;
+    }
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+    .side-menu li a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #5d2e2f;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .side-menu li a:hover {
+      background-color: #e9bcb7;
+    }
+
+    /* Overlay Background */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      display: none;
+      z-index: 999;
+    }
+    .overlay.active {
+      display: block;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffe0f0, #f8bbd0);
+      color: #880e4f;
+      padding: 100px 20px 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #d63384;
+      font-weight: 600;
+    }
+
+    .section-text {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .team-member {
+      background: #fff3f9;
+      border-left: 5px solid #f06292;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta a {
+      background-color: #f06292;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta a:hover {
+      background-color: #d63384;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #fbcfe8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: #c2185b;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<nav class="navbar">
+  <!-- Left Corner: Contact & Social Icons -->
+  <div class="nav-icons">
+    <a href="contact us.html" title="Contact Us"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com " target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com " target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com " target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <!-- Center: Video Logo -->
+  <div class="video-logo">
+    <video autoplay muted loop playsinline>
+      <source src="GirlEmpower+logo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="logo-name">GirlEmpower+</div>
+  </div>
+
+  <!-- Right: Hamburger Menu Toggle -->
+  <div class="menu-toggle" id="menu-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- Side Menu (Hamburger Menu) -->
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Menstrual Health.html">Menstrual Health</a></li>
+    <li><a href="therapists support.html">Therapists & Support</a></li>
+    <li><a href="motivational zone.html">Motivational Zone</a></li>
+    <li><a href="learn-grow.html">Learn & Grow</a></li>
+    <li><a href="community-connection.html">Community & Connection</a></li>
+    <li><a href="parent-teacher-resources.html">Parent & Teacher Resources</a></li>
+    <li><a href="shop-resources.html">Shop & Resources</a></li>
+    <li><a href="about us.html">About Us</a></li>
+    <li><a href="blog-articles.html">Blog / Articles</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact us.html">Contact Us</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="chat-with-therapist.html">Chat with a Therapist</a></li>
+    <li><a href="books.html">PDFs</a></li>
+  </ul>
+</div>
+
+<!-- Overlay Background -->
+<div class="overlay" id="overlay"></div>
+
+<!-- JavaScript for Toggle -->
+<script>
+  const menuIcon = document.getElementById('menu-icon');
+  const sideMenu = document.getElementById('sideMenu');
+  const overlay = document.getElementById('overlay');
+
+  // Open/close menu
+  menuIcon.addEventListener('click', () => {
+    sideMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
+
+  // Close menu when clicking overlay
+  overlay.addEventListener('click', () => {
+    sideMenu.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+</script>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>About Us</h1>
+  <p>Who we are and why we believe every girl deserves to feel empowered.</p>
+</section>
+
+<!-- Main Content -->
+<div class="content">
+
+  <!-- Our Story -->
+  <div class="section">
+    <h2 class="section-title">Our Story</h2>
+    <p class="section-text">
+      GirlEmpower+ was born from a simple truth: many girls and women struggle in silence with emotional challenges, often without access to support or resources.
+    </p>
+    <p class="section-text">
+      We started this platform to change that. From our early beginnings as a small community group, we have grown into a trusted source of tools, education, and connection for parents, educators, and young women seeking strength through wellness.
+    </p>
+  </div>
+
+  <!-- Mission & Vision -->
+  <div class="section">
+    <h2 class="section-title">Our Mission & Vision</h2>
+    <p class="section-text"><strong>Mission:</strong> To empower girls and women by providing accessible mental health resources, emotional support, and educational tools that foster confidence, resilience, and healing.</p>
+    <p class="section-text"><strong>Vision:</strong> A world where every girl and woman has the tools she needs to thrive emotionally, mentally, and socially free from shame, stigma, or isolation.</p>
+  </div>
+
+  <!-- Core Values -->
+  <div class="section">
+    <h2 class="section-title">Our Core Values</h2>
+    <ul class="section-text">
+      <li>Compassion  We lead with empathy and understanding.</li>
+      <li>Inclusivity  Every girls story matters, no matter her background.</li>
+      <li>Strength We believe in the power within each woman and girl.</li>
+      <li>Wellness Mental health is just as important as physical health.</li>
+      <li>Growth Healing comes from learning, growing, and connecting.</li>
+    </ul>
+  </div>
+
+  <!-- Goals & Impact -->
+  <div class="section">
+    <h2 class="section-title">Our Goals</h2>
+    <ul class="section-text">
+      <li> Provide free and affordable mental health resources to all.</li>
+      <li>Create safe spaces for girls and women to share their stories.</li>
+      <li>Educate parents and teachers on supporting youth mental health.</li>
+      <li>Build an online community rooted in love, growth, and empowerment.</li>
+      <li>Host workshops and events that inspire courage and healing.</li>
+    </ul>
+  </div>
+
+  <!-- Team -->
+  <div class="section">
+    <h2 class="section-title">Meet Our Founders</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <h3>Tayba Ali</h3>
+        <p>Founder & Mental Health Advocate</p>
+        <p>Passionate about helping girls build confidence and self-love through holistic healing and community support.</p>
+      </div>
+      <div class="team-member">
+        <h3>Layla Morgan</h3>
+        <p>Co-Founder & Education Specialist</p>
+        <p>Dedicated to bringing trauma-informed practices into schools and homes across the country.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="cta">
+    <a href="community-connection.html">Join Our Community</a>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Follow Us for Daily Inspiration</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+
+</body>
+</html>

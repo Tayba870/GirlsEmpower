@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Articles | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .logo img {
+      width: 145px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    /* Navigation */
+    .nav-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      margin-left: 20px;
+    }
+
+    .menu-toggle:hover {
+      transform: rotate(90deg);
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    nav a {
+      color: #d63384;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 1024px) {
+      nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #fce4ec;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+      }
+
+      nav.active {
+        transform: translateY(0);
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid #f8bbd0;
+        border-radius: 0;
+      }
+
+      nav a:hover {
+        background-color: #fbcfe8;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffe0f0, #f8bbd0);
+      color: #880e4f;
+      padding: 100px 20px 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* Blog Content */
+    .blog-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .article-card {
+      background: #fff3f9;
+      border-left: 5px solid #f06292;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .article-date {
+      font-size: 0.9rem;
+      color: #a85584;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .article-title {
+      font-size: 1.5rem;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+
+    .article-excerpt {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .read-more {
+      display: inline-block;
+      color: #f06292;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .read-more:hover {
+      color: #d63384;
+    }
+
+    /* Categories */
+    .categories {
+      margin: 40px 0;
+    }
+
+    .category-title {
+      font-size: 1.3rem;
+      color: #d63384;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .category-title::before {
+      content: "*";
+      margin-right: 10px;
+    }
+
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .category-tag {
+      background: #fbcfe8;
+      color: #c2185b;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+
+    .category-tag:hover {
+      background: #f8bbd0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #fbcfe8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons {
+      margin: 20px 0;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: #c2185b;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #880e4f;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header with Navigation -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="GirlEmpower+ Logo" /> GirlEmpower+
+  </div>
+  
+  <div class="nav-container">
+    <nav id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Menstrual-Health.html">Menstrual Health</a></li>
+        <li><a href="therapists-support.html">Therapists</a></li>
+        <li><a href="motivational-zone.html">Motivation</a></li>
+        <li><a href="learn-grow.html">Learn & Grow</a></li>
+        <li><a href="community-connection.html">Community</a></li>
+        <li><a href="parent-teacher-resources.html">Resources</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="blog-articles.html" class="active">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Blog & Articles</h1>
+  <p>Insights, stories, and expert advice for your empowerment journey</p>
+</div>
+
+<!-- Blog Content -->
+<div class="blog-container">
+
+  <!-- Article 1 -->
+  <div class="article-card">
+    <div class="article-date">May 15, 2025</div>
+    <h2 class="article-title">Breaking the Silence: Mental Health in Young Women</h2>
+    <p class="article-excerpt">Exploring the unique challenges young women face with mental health and how to create safe spaces for open conversations...</p>
+    <a href="Young female mental health.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <!-- Article 2 -->
+  <div class="article-card">
+    <div class="article-date">April 28, 2025</div>
+    <h2 class="article-title">5 Self-Care Practices That Actually Work</h2>
+    <p class="article-excerpt">Move beyond bubble baths - discover evidence-based self-care strategies that truly support mental wellness...</p>
+    <a href="5self care.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <!-- Article 3 -->
+  <div class="article-card">
+    <div class="article-date">April 10, 2025</div>
+    <h2 class="article-title">Building Resilience in Teenage Girls</h2>
+    <p class="article-excerpt">Practical tools for parents and educators to help young women develop emotional resilience in challenging times...</p>
+    <a href="building resilience.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <!-- Categories -->
+  <div class="categories">
+    <h3 class="category-title">Browse by Category</h3>
+    <div class="category-tags">
+      <a href="mental health2.html" class="category-tag">Mental Health2</a>
+      <a href="self care or.html" class="category-tag">Self-Care</a>
+      <a href="Relationship.html" class="category-tag">Relationships</a>
+      <a href="Parenting.html" class="category-tag">Parenting</a>
+      <a href="Education.html" class="category-tag">Education</a>
+      <a href="Inspiration.html" class="category-tag">Inspiration</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Follow Us for More Articles</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-pinterest"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+  </p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+    
+    const icon = document.querySelector('.menu-toggle i');
+    if (nav.classList.contains('active')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  }
+  
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('#mainNav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        toggleMenu();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

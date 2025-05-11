@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classroom Mindfulness Activities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      padding-top: 80px;
+    }
+
+    /* Header and Navigation (same as previous example) */
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 80px;
+      margin-right: 10px;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger-line {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: #fce4ec;
+      padding: 80px 20px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+    }
+
+    .mobile-menu li {
+      margin-bottom: 15px;
+    }
+
+    .mobile-menu a {
+      color: #d63384;
+      text-decoration: none;
+      display: block;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      background-color: #fbcfe8;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* Desktop Menu - Hidden on mobile */
+    .desktop-menu {
+      display: none;
+    }
+
+    /* Show desktop menu on larger screens */
+    @media (min-width: 768px) {
+      .hamburger {
+        display: none;
+      }
+      
+      .mobile-menu {
+        display: none;
+      }
+      
+      .desktop-menu {
+        display: block;
+      }
+      
+      .desktop-menu ul {
+        display: flex;
+        gap: 15px;
+        list-style: none;
+      }
+      
+      .desktop-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .desktop-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    /* Content Styles */
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 { 
+      color: #4A90E2;
+      margin-bottom: 20px;
+    }
+
+    .download-link { 
+      display: inline-block; 
+      margin: 20px 0; 
+      padding: 15px 25px; 
+      background-color: #4A90E2; 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .download-link:hover {
+      background-color: #3a7bc8;
+    }
+
+    .section { 
+      margin-bottom: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    iframe { 
+      width: 100%; 
+      max-width: 560px; 
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    img { 
+      max-width: 100%; 
+      height: auto;
+      border-radius: 8px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="LOGO.JPG" alt="Logo" /> GirlEmpower+
+  </div>
+  
+  <!-- Hamburger Menu Button -->
+  <div class="hamburger" id="hamburger">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </div>
+  
+  <!-- Desktop Menu -->
+  <nav class="desktop-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Menstrual Health.html">Menstrual Health</a></li>
+      <li><a href="therapists support.html">Therapists & Support</a></li>
+      <li><a href="motivational zone.html">Motivational Zone</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Main Content -->
+<div class="container">
+  <h1>Classroom Mindfulness Activities</h1>
+  <p>Mindfulness helps students improve focus, reduce stress, and enhance emotional regulation. Below you'll find a downloadable PDF with activities designed for the classroom setting.</p>
+
+  <a href="mindfulness_activities.pdf" class="download-link" download>Download PDF</a>
+
+  <div class="section">
+    <h2>Why Mindfulness in the Classroom?</h2>
+    <p>Mindfulness practices help children stay present, regulate emotions, and build empathy. These short exercises can be done daily to support well-being and learning readiness.</p>
+  </div>
+
+  <div class="section">
+    <h2>Sample Activities</h2>
+    <ul>
+      <li><strong>Breathing Buddy:</strong> Students lie down with a stuffed animal on their stomachs and watch it rise and fall as they breathe.</li>
+      <li><strong>5-Minute Meditation:</strong> Guided meditation focusing on the senses and grounding techniques.</li>
+      <li><strong>Gratitude Circle:</strong> Each student shares one thing they're grateful for that day.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Video Example</h2>
+    <iframe src="https://www.youtube.com/embed/j734gLbQFbU" allowfullscreen></iframe>
+  </div>
+
+  <div class="section">
+    <h2>Teacher Tip</h2>
+    <p>Start each day with a 5 to 6 minute mindfulness activity. Consistency builds habit and helps students transition into learning mode calmly.</p>
+  </div>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+  
+  function toggleMenu() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    // Toggle body scroll when menu is open
+    if (mobileMenu.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+  
+  hamburger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+  
+  // Close menu when clicking on a link
+  const menuLinks = document.querySelectorAll('.mobile-menu a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Motivational Zone | GirlEmpower+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .logo img {
+      width: 65px;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Hamburger Menu */
+    .menu-toggle {
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: rotate(90deg);
+    }
+
+    /* Navigation */
+    nav {
+      display: none;
+      flex-direction: column;
+      background-color: #fce4ec;
+      position: absolute;
+      top: 65px;
+      left: 0;
+      width: 100%;
+    }
+
+    nav.active {
+      display: flex;
+    }
+
+    nav ul {
+      list-style-type: none;
+    }
+
+    nav a {
+      color: #d63384;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-bottom: 1px solid #f8bbd0;
+      transition: all 0.3s ease;
+      display: block;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #fbcfe8;
+      padding-left: 35px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #ffe0f0, #f8bbd0);
+      color: #880e4f;
+      padding: 100px 20px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      margin-bottom: 50px;
+      background: #fff3f9;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-left: 5px solid #f06292;
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #d63384;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title::before {
+      content: "";
+      margin-right: 10px;
+    }
+
+    .section-text {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .affirmation {
+      background: #fff3f9;
+      border-left: 5px solid #f06292;
+      padding: 20px;
+      margin-bottom: 20px;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #c2185b;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 30px 0;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #fbcfe8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .social-icons a {
+      color: #c2185b;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: #880e4f;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        position: static;
+        background: transparent;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        padding: 10px 20px;
+        border: none;
+        font-weight: 500;
+        border-radius: 20px;
+      }
+
+      nav a:hover {
+        padding: 10px 20px;
+        background-color: #fbcfe8;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section {
+        padding: 20px;
+      }
+      
+      nav a {
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" /> GirlEmpower+
+  </div>
+  
+  <!-- Hamburger Menu Button -->
+  <div class="hamburger" id="hamburger">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </div>
+  
+  <!-- Desktop Menu -->
+  <nav class="desktop-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Menstrual Health.html">Menstrual Health</a></li>
+      <li><a href="therapists support.html">Therapists & Support</a></li>
+      <li><a href="motivational zone.html">Motivational Zone</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Your Daily Dose of Empowerment</h1>
+  <p>Let inspiration guide your journey. You are capable, worthy, and enough.</p>
+</div>
+
+<!-- Content Section -->
+<div class="content">
+
+  <!-- Daily Affirmation -->
+  <div class="section">
+    <h2 class="section-title">Today's Affirmation</h2>
+    <div class="affirmation">
+      "I am strong, I am resilient, and I choose to rise above every challenge."
+    </div>
+  </div>
+
+  <!-- Motivational Video -->
+  <div class="section">
+    <h2 class="section-title">Watch & Be Inspired</h2>
+    <p class="section-text">Enjoy a short video on self-love and empowerment from our community:</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/5DtDJABXkIo" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Success Stories -->
+  <div class="section">
+    <h2 class="section-title">Real Women, Real Strength</h2>
+    <ul>
+      <li>"After years of silence, I found my voice through therapy and support." Sarah</li>
+      <li>"GirlEmpower+ helped me believe in myself again after loss." Priya</li>
+      <li>"I learned to love myself through daily affirmations and connection." Maria</li>
+    </ul>
+  </div>
+
+  <!-- Quotes -->
+  <div class="section">
+    <h2 class="section-title">Uplifting Quotes</h2>
+    <ul>
+      <li>"You are more powerful than you know." Maya Angelou</li>
+      <li>"The most common way people give up their power is by thinking they don't have any." Alice Walker</li>
+      <li>"To be brave is to love someone unconditionally, without expecting anything in return." Margaret Cho</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Follow Us for Daily Motivation</p>
+  <div class="social-icons">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p style="font-size: 0.9rem; margin-top: 10px;">
+    <i class="far fa-copyright"></i> 2025 GirlEmpower+. All rights reserved.
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

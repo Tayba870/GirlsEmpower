@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menstrual Health - GirlEmpower+</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf9;
+      color: #5d2e2f;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #fcdde0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #d67b76;
+    }
+
+    .menu-toggle {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background-color: #d67b76;
+      transition: all 0.3s ease;
+    }
+
+    /* Side Drawer Menu */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: linear-gradient(to bottom right, #ffe8eb, #fce4e8);
+      padding-top: 70px;
+      z-index: 1001;
+      overflow-y: auto;
+      transition: left 0.3s ease;
+    }
+
+    .side-menu.active {
+      left: 0;
+    }
+
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .side-menu li {
+      padding: 12px 20px;
+      border-bottom: 1px solid #ffd6db;
+    }
+
+    .side-menu li:hover {
+      background-color: #ffe0e3;
+    }
+
+    .side-menu a {
+      text-decoration: none;
+      color: #5d2e2f;
+      font-weight: 500;
+      display: block;
+    }
+
+    .side-menu strong {
+      display: block;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #a84a54;
+      text-transform: uppercase;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 20px 60px;
+      text-align: center;
+      background: linear-gradient(to right, #ffe8f0, #fdeaf0);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: #d67b76;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: #5d2e2f;
+    }
+
+    .cta-buttons a {
+      display: inline-block;
+      background-color: #e9bcb7;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cta-buttons a:hover {
+      background-color: #d67b76;
+    }
+
+    /* Highlights Section */
+    .features {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .features h2 {
+      color: #d67b76;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background-color: #fff2f4;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+      color: #e9bcb7;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #5d2e2f;
+    }
+
+    /* Special Featured Cards */
+    .special-section {
+      padding: 60px 20px;
+      background-color: #fef8f8;
+      text-align: center;
+    }
+
+    .special-section h2 {
+      color: #d67b76;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .special-card {
+      flex: 1 1 280px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .special-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 10px;
+      color: #e9bcb7;
+      margin-bottom: 5px;
+    }
+
+    .special-card img,
+    .special-card iframe {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .special-card h3 {
+      color: #e9bcb7;
+      margin: 10px 0 5px;
+    }
+
+    .special-card p {
+      font-size: 0.95rem;
+      color: #5d2e2f;
+    }
+
+    .button-link {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #e9bcb7;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .button-link:hover {
+      background-color: #d67b76;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">GirlEmpower+</div>
+    <div class="menu-toggle" id="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Hamburger Side Menu -->
+  <div class="side-menu" id="sideMenu">
+    <ul>
+      <strong>Understanding Your Cycle</strong>
+      <li><a href="understanding-cycle.html">General Understanding Your Cycle </a></li>
+      <li><a href="phases of cycle.html">Phases of the Cycle</a></li>
+      <li><a href="hormonal changes.html">Hormonal Changes</a></li>
+      <li><a href="tracking tools.html">Tracking Tools & Apps</a></li>
+
+      <strong>Menstruation Basics</strong>
+     
+      <li><a href="menstruation basics.html">What is Menstruation?</a></li>
+      <li><a href="first period menarche.html">First Period (Menarche)</a></li>
+      <li><a href="sanitary products.html">Sanitary Products</a></li>
+
+      <strong>Managing PMS & Cramps</strong>
+      <li><a href="managing pms cramps.html">How to manage Pains </a></li>
+      <li><a href="physical-symptoms.html">Physical Symptoms</a></li>
+      <li><a href="emotional changes.html">Emotional Changes</a></li>
+      <li><a href="pain management tips.html">Pain Management Tips</a></li>
+
+    
+      <strong>Menstrual Disorders</strong>
+      <li><a href="menstrual disorder.html">General Menstrual Disorder </a></li>
+      <li><a href="pcos.html">PCOS</a></li>
+      <li><a href="endometriosis.html">Endometriosis</a></li>
+      <li><a href="amenorrhea.html">Amenorrhea</a></li>
+      <li><a href="when to see a Dr.html">When to See a Doctor</a></li>
+    </ul>
+  </div>
+
+  <!-- Overlay Background -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- JavaScript for Toggle -->
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('overlay');
+
+    // Open/close menu
+    menuIcon.addEventListener('click', () => {
+      sideMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', () => {
+      sideMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Menstrual Health</h1>
+    <p>A safe space to learn about your body, understand your cycle, and grow with confidence.</p>
+    <div class="cta-buttons">
+      <a href="phases of cycle.html">Start Learning</a>
+      <a href="period tracker.html">Track Your Cycle</a>
+    </div>
+  </section>
+
+  <!-- Highlights Section -->
+  <section class="features">
+    <h2>Explore What We Offer</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Understanding Your Cycle</h3>
+        <p>Learn how your menstrual cycle works from hormones to ovulation.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Sanitary Products</h3>
+        <p>Discover what products are available and which one suits you best.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Pain Relief Tips</h3>
+        <p>Feel better with natural ways to manage cramps and PMS symptoms.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Debunking Myths</h3>
+        <p>Separate facts from fiction about periods and your body.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Features Just for You -->
+  <section class="special-section">
+    <h2>Special Features Just for You</h2>
+    <div class="card-container">
+
+      <!-- Girl Power Story -->
+      <div class="special-card">
+        <div class="icon">
+ </div>
+        <img src="first period.jpg" alt="Her Story: First Period">
+        <h3>Her Story: First Period</h3>
+        <p>Hear from other girls who have been where you are and come out stronger.</p>
+        <a href="her story first period.html" class="button-link">Read and watch Her Story</a>
+      </div>
+
+      <!-- Track Your Period -->
+      <div class="special-card">
+        <div class="icon">
+</div>
+        <img src="track.jpg" alt="Track Your Cycle Now">
+        <h3>Track Your Cycle</h3>
+        <p>Download our free printable period tracker or use our online tool to stay in control.</p>
+        <a href="period tracker.html" download class="button-link">Download Tracker</a>
+      </div>
+
+      <!-- Therapist Tip -->
+      <div class="special-card">
+        <div class="icon">
+</div>
+<img src="week tip.png" alt="Therapist Tip of the Week">
+       
+        <h3>Therapist Tip of the Week</h3>
+        <p>This week tip: "It is okay to feel different during your period your body is doing amazing things!"</p>
+        <a href="therapist tips.html" class="button-link">Watch More Tips</a>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
